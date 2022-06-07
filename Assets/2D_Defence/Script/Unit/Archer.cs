@@ -5,6 +5,7 @@ using UnityEngine;
 public class Archer : Unit
 {
     public GameObject _arrowTemplate;
+    public Transform _firePos;
     protected override void Attack()
     {
         
@@ -16,7 +17,7 @@ public class Archer : Unit
         {
             GameObject arrowObj = Instantiate(_arrowTemplate);
             arrowObj.SetActive(true);
-            arrowObj.transform.position = transform.position;
+            arrowObj.transform.position = _firePos.position;
         }
     }
 }

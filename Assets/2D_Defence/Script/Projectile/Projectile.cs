@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         Vector2 force = new Vector2(_flyForceX, 0);
         _rigid.AddForce(force);
+        
     }
 
     void Update()
