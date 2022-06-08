@@ -15,6 +15,8 @@ public class Unit : MonoBehaviour
     // hp바 관련
     public RectTransform _hpBarTrans;
     public Vector3 _hpBarOffset;
+    // 이팩트
+    public GameObject _hitEffTemplate; // 피격 이펙트 원본
     
     
     int _maxHp = 100;
@@ -124,6 +126,18 @@ public class Unit : MonoBehaviour
             _Anima?.SetBool("die", true);
             Invoke("Disappear", 1.5f);
         }
+        // 피격 파티클 이벤트 재생
+        PlayHitEffect();
+    }
+
+    void PlayHitEffect()
+    {
+        if (_hitEffTemplate != null)
+        {
+            GameObject hitEffObj = Instantiate(_hitEffTemplate);
+            hitEffObj.SetActive(true);
+            hitEffObj.transform.position = transform.position;
+        }
     }
     public void SetAttackCol(int on) // 1 = on, 0 = off
     {
@@ -155,6 +169,13 @@ public class Unit : MonoBehaviour
         if(collision.tag == "AttackCol")
         {
             DoDamage(10);
+            // 화살충돌시 씬 삭제
+            Arrow arrow = collision.gameObject.GetComponent<Arrow>();
+            if(arrow != null)
+            {
+                //Destroy(collision.gameObject);
+                Destroy(arrow.gameObject);
+            }
         }
     }
     void Disappear()
