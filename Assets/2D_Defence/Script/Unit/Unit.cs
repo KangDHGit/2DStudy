@@ -116,12 +116,12 @@ public class Unit : MonoBehaviour
         if (_hp > 0.0f)
         {   // Math는 System이 제공해주는 함수
             _hp = Math.Max(_hp, 0); // _hp와 0 중에 큰값을 리턴
-            _Anima.SetTrigger("hit");
+            _Anima?.SetTrigger("hit");
             RefreshHpBar();
         }
         else
         {
-            _Anima.SetBool("die", true);
+            _Anima?.SetBool("die", true);
             Invoke("Disappear", 1.5f);
         }
     }
@@ -151,7 +151,8 @@ public class Unit : MonoBehaviour
     {
         //Debug.Log("나는 누구인가 " + name);
         //Debug.Log("충돌한 물체는 누구인가 " + collision.name);
-        if (collision.name == "AttackCol") // 데미지 처리
+        //if (collision.name == "AttackCol" || collision.name == "Arrow_Blue") // 데미지 처리
+        if(collision.tag == "AttackCol")
         {
             DoDamage(10);
         }
