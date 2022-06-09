@@ -6,15 +6,16 @@ using UnityEngine.UI;
 
 public class Unit : MapObject
 {
-    // Start is called before the first frame update
+    // 적 찾기
+    public GameObject[] _enemyList;
+
     Rigidbody2D _rigid;
     SpriteRenderer _renderer;
     protected Animator _Anima;
     BoxCollider2D _attackCol;
     public GameObject _enemyObj;
     
-    // 이팩트
-    public GameObject _hitEffTemplate; // 피격 이펙트 원본
+    
     public float _speed = 1.0f;
     public float _attackRange = 1.75f; // 공격범위
 
@@ -37,16 +38,17 @@ public class Unit : MapObject
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         // rigidbody를 건드려서 앞으로 이동
 
         // 1. rigidbody AddForce 함수로 힘(가속도)를 주어서 이동(가속도운동)
         //_rigid.AddForce(new Vector2(10, 0));
 
         // 2. rigidbody velocity 변수(x축)를 직접 건드리는 방법(등속도운동)
-
         Move();
+        _enemyObj = FindEnemy();
         if (_enemyObj != null)
         {
             CheckDistance();
@@ -55,7 +57,6 @@ public class Unit : MapObject
         {
             _Anima.SetBool("attack", false);
         }
-        UpdateHpBarBos();
     }
     
     void TeamCheck()
@@ -110,19 +111,8 @@ public class Unit : MapObject
             _Anima?.SetBool("die", true);
             Invoke("Disappear", 1.5f);
         }
-        // 피격 파티클 이벤트 재생
-        PlayHitEffect();
     }
 
-    void PlayHitEffect()
-    {
-        if (_hitEffTemplate != null)
-        {
-            GameObject hitEffObj = Instantiate(_hitEffTemplate);
-            hitEffObj.SetActive(true);
-            hitEffObj.transform.position = transform.position;
-        }
-    }
     public void SetAttackCol(int on) // 1 = on, 0 = off
     {
         if (transform.Find("AttackCol") == null)
@@ -133,25 +123,7 @@ public class Unit : MapObject
             _attackCol.enabled = false;
         
     }
-    void UpdateHpBarBos() // 체력바가 항상 유닛을 따라다니도록 위치 업데이트
-    {
-        // 유닛의 위치를 가져와서(월드좌표)
-        Vector3 unitPos = transform.position;
-        // 월드 좌표를 스크린좌표(UI 좌표로 변환)
-        Vector3 screenPos = Camera.main.WorldToScreenPoint(unitPos);
-        // 변환된 스크린좌표를 체력바의 rectTransform에 적용
-        if (_hpBarTrans != null)
-        {
-            _hpBarTrans.position = screenPos + _hpBarOffset;
-        }
-    }
     
-    void Disappear()
-    {
-        Destroy(gameObject);
-        Destroy(_hpBarTrans.gameObject);
-    }
-
     protected virtual void Attack()
     {
         _Anima.SetBool("attack", true);
@@ -159,5 +131,17 @@ public class Unit : MapObject
     public void OnAttack() // 애니메이션 이벤트 연결용
     {
         Attack();
+    }
+    GameObject FindEnemy()
+    {
+        GameObject enemyObj = null;
+        // 적을 찾는 로직 구현
+        // 적 리스트(배열)에서 가장 첫번째 것을 찾기
+        if(_enemyList != null && _enemyList.Length > 0)
+        {
+            enemyObj = _enemyList[0];
+        }
+
+        return enemyObj;
     }
 }
