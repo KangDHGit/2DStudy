@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Unit : MonoBehaviour
+public class Unit : MapObject
 {
     // Start is called before the first frame update
     Rigidbody2D _rigid;
@@ -12,21 +12,16 @@ public class Unit : MonoBehaviour
     protected Animator _Anima;
     BoxCollider2D _attackCol;
     public GameObject _enemyObj;
-    // hp바 관련
-    public RectTransform _hpBarTrans;
-    public Vector3 _hpBarOffset;
+    
     // 이팩트
     public GameObject _hitEffTemplate; // 피격 이펙트 원본
-    
-    
-    int _maxHp = 100;
-    public int _hp = 0;    
     public float _speed = 1.0f;
     public float _attackRange = 1.75f; // 공격범위
 
 
-    void Start()
+    override protected void Start()
     {
+        base.Start();
         _rigid = GetComponent<Rigidbody2D>();
         _renderer = GetComponent<SpriteRenderer>();
         _Anima = GetComponent<Animator>();
@@ -38,8 +33,7 @@ public class Unit : MonoBehaviour
         }
 
         TeamCheck();    // 팀체크
-        _hp = _maxHp;   // 체력 초기화
-        RefreshHpBar();
+        
     }
 
     // Update is called once per frame
@@ -63,15 +57,7 @@ public class Unit : MonoBehaviour
         }
         UpdateHpBarBos();
     }
-    void RefreshHpBar() // 체력바 갱신
-    {
-        if (_hpBarTrans != null)
-        {
-            // fill 이미지 컴포넌트 찾기
-            Image fill_Img = _hpBarTrans.Find("Fil").GetComponent<Image>();
-            fill_Img.fillAmount = (float)_hp / (float)_maxHp;
-        }
-    }
+    
     void TeamCheck()
     {
         if (_renderer.flipX == true)
@@ -112,14 +98,12 @@ public class Unit : MonoBehaviour
             _Anima.SetBool("attack", false); // 공격범위를 벗어나거나 체력이 0 이면
         }
     }
-    public void DoDamage(int damage)
+    public override void DoDamage(int damage)
     {
-        _hp -= damage;
+        base.DoDamage(damage);
         if (_hp > 0.0f)
-        {   // Math는 System이 제공해주는 함수
-            _hp = Math.Max(_hp, 0); // _hp와 0 중에 큰값을 리턴
+        {   
             _Anima?.SetTrigger("hit");
-            RefreshHpBar();
         }
         else
         {
@@ -161,23 +145,7 @@ public class Unit : MonoBehaviour
             _hpBarTrans.position = screenPos + _hpBarOffset;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //Debug.Log("나는 누구인가 " + name);
-        //Debug.Log("충돌한 물체는 누구인가 " + collision.name);
-        //if (collision.name == "AttackCol" || collision.name == "Arrow_Blue") // 데미지 처리
-        if(collision.tag == "AttackCol")
-        {
-            DoDamage(10);
-            // 화살충돌시 씬 삭제
-            Arrow arrow = collision.gameObject.GetComponent<Arrow>();
-            if(arrow != null)
-            {
-                //Destroy(collision.gameObject);
-                Destroy(arrow.gameObject);
-            }
-        }
-    }
+    
     void Disappear()
     {
         Destroy(gameObject);
