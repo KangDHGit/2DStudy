@@ -6,15 +6,12 @@ using UnityEngine.UI;
 
 public class Unit : MapObject
 {
-    // 적 찾기
-    public GameObject[] _enemyList;
 
     Rigidbody2D _rigid;
     SpriteRenderer _renderer;
     protected Animator _Anima;
     BoxCollider2D _attackCol;
     public GameObject _enemyObj;
-    
     
     public float _speed = 1.0f;
     public float _attackRange = 1.75f; // 공격범위
@@ -136,10 +133,13 @@ public class Unit : MapObject
     {
         GameObject enemyObj = null;
         // 적을 찾는 로직 구현
-        // 적 리스트(배열)에서 가장 첫번째 것을 찾기
-        if(_enemyList != null && _enemyList.Length > 0)
+        if (_gameDir._blue_list.Length > 0 && _team == Team.RED )
         {
-            enemyObj = _enemyList[0];
+            enemyObj = _gameDir._blue_list[0];
+        }
+        else if (_gameDir._red_list.Length > 0 && _team == Team.BLUE)
+        {
+            enemyObj = _gameDir._red_list[0];
         }
 
         return enemyObj;

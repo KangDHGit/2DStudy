@@ -19,6 +19,8 @@ public class Archer : Unit
             arrowObj.SetActive(true);
             arrowObj.transform.position = _firePos.position;
             arrowObj.name = "Arrow";
+            // 화살에 팀 구현
+            arrowObj.GetComponent<Arrow>()._team = this._team;
         }
     }
 }
