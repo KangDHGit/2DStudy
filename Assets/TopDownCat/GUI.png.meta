@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c84441f70c009fa48abda3d7959c2b9e
+guid: 50774374d4f0d3d4184f30e34dce7a00
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,64 +116,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Water
+      name: GUI_0
       rect:
         serializedVersion: 2
-        x: 744
-        y: 288
-        width: 18
-        height: 22
+        x: 161
+        y: 161
+        width: 14
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34207cfce8c5d5c40bc519926804406e
-      internalID: 99235623
+      spriteID: 0f05524165ec9d043a5707d1d47036a9
+      internalID: 522480868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Food
+      name: GUI_1
       rect:
         serializedVersion: 2
-        x: 200
-        y: 2
-        width: 16
-        height: 20
+        x: 161
+        y: 158
+        width: 14
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94eae2af5a8583548bf5fd960e99de0b
-      internalID: 1029253416
+      spriteID: 2f3094943aad8f448bfb43af2f929c8d
+      internalID: 466796667
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flower
+      name: GUI_2
       rect:
         serializedVersion: 2
-        x: 582
-        y: 128
-        width: 20
-        height: 24
+        x: 177
+        y: 161
+        width: 14
+        height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79ece591be49ced45a6f7430a8b9b09b
-      internalID: -1239760853
+      spriteID: 1d864ee22bdfebc4093cffde57be6ad4
+      internalID: -12791646
       vertices: []
       indices: 
       edges: []
@@ -189,9 +189,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Food: 1029253416
-      Water: 99235623
-      Flower: -1239760853
+      GUI_0: 522480868
+      GUI_2: -12791646
+      GUI_1: 466796667
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
