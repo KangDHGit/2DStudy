@@ -515,7 +515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_WalkL000
+      name: black_WalkDiagD000
       rect:
         serializedVersion: 2
         x: 0
@@ -536,7 +536,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_WalkL001
+      name: black_WalkDiagD001
       rect:
         serializedVersion: 2
         x: 32
@@ -557,7 +557,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_WalkL002
+      name: black_WalkDiagD002
       rect:
         serializedVersion: 2
         x: 64
@@ -578,7 +578,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_WalkL003
+      name: black_WalkDiagD003
       rect:
         serializedVersion: 2
         x: 96
@@ -935,7 +935,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_39
+      name: black_Up000
       rect:
         serializedVersion: 2
         x: 0
@@ -956,7 +956,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_40
+      name: black_Up001
       rect:
         serializedVersion: 2
         x: 32
@@ -977,7 +977,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_41
+      name: black_Up002
       rect:
         serializedVersion: 2
         x: 64
@@ -998,7 +998,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_42
+      name: black_Up003
       rect:
         serializedVersion: 2
         x: 96
@@ -1103,7 +1103,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_47
+      name: black_WalkLR000
       rect:
         serializedVersion: 2
         x: 0
@@ -1124,7 +1124,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_48
+      name: black_WalkLR001
       rect:
         serializedVersion: 2
         x: 32
@@ -1145,7 +1145,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_49
+      name: black_WalkLR002
       rect:
         serializedVersion: 2
         x: 64
@@ -1166,7 +1166,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_50
+      name: black_WalkLR003
       rect:
         serializedVersion: 2
         x: 96
@@ -1785,19 +1785,20 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      black_001_50: 1794189953
       black_001_44: 1848456940
       black_001_0: 778122386
       black_001_5: -996326444
       black_001_59: 1344940351
       black_001_28: -1887269840
+      black_WalkLR002: 379409363
       black_001_14: -1361729122
       black_001_34: -1311877353
       black_001_51: -1611564851
+      black_Up003: 418228110
       black_001_8: 1595792797
       black_001_25: 574814555
       black_Idle001: 1150074287
-      black_WalkL003: 2124867460
+      black_WalkDiagD000: -1938752318
       black_001_15: 1840770058
       black_001_26: 1286966160
       black_001_43: 911126760
@@ -1805,50 +1806,49 @@ TextureImporter:
       black_001_53: -297073803
       black_001_31: 2114582423
       black_001_30: -867391420
-      black_001_48: 1191325442
+      black_Up002: 1424257540
+      black_Up001: 1661255638
       black_001_16: -1974908021
-      black_001_41: 1424257540
       black_001_17: -577485835
+      black_WalkLR000: 1301401274
       black_001_13: 818404554
       black_001_37: 2019337558
-      black_WalkL000: -1938752318
+      black_WalkDiagD003: 2124867460
+      black_WalkDiagD002: -141378075
       black_001_23: 1385724990
       black_001_69: 1165755558
       black_001_32: 1331943461
       black_001_74: 88122971
       black_001_77: -492694907
       black_001_68: 906342547
-      black_001_76: -577843891
-      black_001_6: 855207103
-      black_001_18: -715752434
-      black_001_40: 1661255638
-      black_001_58: -472783762
       black_001_24: -2144193480
-      black_001_29: -159263449
-      black_001_47: 1301401274
-      black_001_52: 321831422
       black_001_35: -1523403102
+      black_001_76: -577843891
+      black_001_58: -472783762
+      black_001_6: 855207103
+      black_001_29: -159263449
+      black_001_75: -1436163947
+      black_001_52: 321831422
+      black_001_18: -715752434
       black_001_63: 2145981110
       black_001_46: 1954458574
       black_001_65: -1561663950
       black_001_54: 1795973651
       black_001_64: 29808121
-      black_001_75: -1436163947
+      black_WalkLR001: 1191325442
       black_001_3: -2064993967
       black_001_78: 335560032
       black_Idle003: -1809168471
       black_001_71: 1709318248
-      black_WalkL001: -671622551
-      black_WalkL002: -141378075
+      black_WalkDiagD001: -671622551
       black_001_56: -399134266
       black_001_57: -1495843225
+      black_Up000: 154764553
       black_001_66: 1992887997
+      black_WalkLR003: 1794189953
       black_Idle000: -1171724685
-      black_001_39: 154764553
-      black_001_42: 418228110
       black_001_70: -354125415
       black_001_38: -599938579
-      black_001_49: 379409363
       black_001_2: -716890182
       black_001_1: -567732311
       black_001_4: -495191032
