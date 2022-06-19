@@ -599,7 +599,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_23
+      name: black_WalkDown000
       rect:
         serializedVersion: 2
         x: 0
@@ -620,7 +620,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_24
+      name: black_WalkDown001
       rect:
         serializedVersion: 2
         x: 32
@@ -641,7 +641,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_25
+      name: black_WalkDown002
       rect:
         serializedVersion: 2
         x: 64
@@ -662,7 +662,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_26
+      name: black_WalkDown003
       rect:
         serializedVersion: 2
         x: 96
@@ -1019,7 +1019,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_43
+      name: black_WalkDiagU000
       rect:
         serializedVersion: 2
         x: 0
@@ -1040,7 +1040,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_44
+      name: black_WalkDiagU001
       rect:
         serializedVersion: 2
         x: 32
@@ -1061,7 +1061,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_45
+      name: black_WalkDiagU002
       rect:
         serializedVersion: 2
         x: 64
@@ -1082,7 +1082,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: black_001_46
+      name: black_WalkDiagU003
       rect:
         serializedVersion: 2
         x: 96
@@ -1785,7 +1785,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      black_001_44: 1848456940
+      black_001_67: -830144713
       black_001_0: 778122386
       black_001_5: -996326444
       black_001_59: 1344940351
@@ -1794,19 +1794,20 @@ TextureImporter:
       black_001_14: -1361729122
       black_001_34: -1311877353
       black_001_51: -1611564851
+      black_WalkDown002: 574814555
+      black_WalkDown003: 1286966160
       black_Up003: 418228110
       black_001_8: 1595792797
-      black_001_25: 574814555
       black_Idle001: 1150074287
       black_WalkDiagD000: -1938752318
+      black_WalkDown001: -2144193480
       black_001_15: 1840770058
-      black_001_26: 1286966160
-      black_001_43: 911126760
+      black_Up002: 1424257540
       black_001_60: -821047896
       black_001_53: -297073803
       black_001_31: 2114582423
       black_001_30: -867391420
-      black_Up002: 1424257540
+      black_WalkDiagD002: -141378075
       black_Up001: 1661255638
       black_001_16: -1974908021
       black_001_17: -577485835
@@ -1814,28 +1815,25 @@ TextureImporter:
       black_001_13: 818404554
       black_001_37: 2019337558
       black_WalkDiagD003: 2124867460
-      black_WalkDiagD002: -141378075
-      black_001_23: 1385724990
       black_001_69: 1165755558
       black_001_32: 1331943461
       black_001_74: 88122971
       black_001_77: -492694907
       black_001_68: 906342547
-      black_001_24: -2144193480
       black_001_35: -1523403102
       black_001_76: -577843891
-      black_001_58: -472783762
       black_001_6: 855207103
+      black_WalkDiagU003: 1954458574
+      black_001_58: -472783762
+      black_001_18: -715752434
       black_001_29: -159263449
       black_001_75: -1436163947
       black_001_52: 321831422
-      black_001_18: -715752434
+      black_WalkLR001: 1191325442
       black_001_63: 2145981110
-      black_001_46: 1954458574
       black_001_65: -1561663950
       black_001_54: 1795973651
       black_001_64: 29808121
-      black_WalkLR001: 1191325442
       black_001_3: -2064993967
       black_001_78: 335560032
       black_Idle003: -1809168471
@@ -1847,14 +1845,15 @@ TextureImporter:
       black_001_66: 1992887997
       black_WalkLR003: 1794189953
       black_Idle000: -1171724685
+      black_WalkDiagU002: -93313434
+      black_WalkDown000: 1385724990
       black_001_70: -354125415
       black_001_38: -599938579
       black_001_2: -716890182
       black_001_1: -567732311
       black_001_4: -495191032
-      black_001_45: -93313434
-      black_001_55: -695298282
       black_001_73: 980252693
+      black_001_55: -695298282
       black_Idle002: 1526810192
       black_001_33: 1160239261
       black_001_36: 597247666
@@ -1863,7 +1862,8 @@ TextureImporter:
       black_001_61: 1238276360
       black_001_72: -522098996
       black_001_62: 94709903
-      black_001_67: -830144713
+      black_WalkDiagU000: 911126760
+      black_WalkDiagU001: 1848456940
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -22,7 +22,7 @@ namespace MyCat
             Invoke("PlayIdle", delay);
         }
 
-        void PlayIdle()
+        void PlayIdle() // 대기 애니메이션 랜덤 재생
         {
             int random = Random.Range(2, 4); // 2~3 랜덤
             if (random == 2)
@@ -43,7 +43,7 @@ namespace MyCat
             float v = Input.GetAxis("Vertical");
             Move(h, v);
             MoveAnim(h, v);
-            Flip(h);
+            //Flip(h);
         }
         void Move(float h, float v)
         {
@@ -59,6 +59,7 @@ namespace MyCat
             _rigid.velocity = new Vector2(h, v).normalized * _speed * fixedDeltaTime * runSpeed;
 
             _anima.SetFloat("velocity", _rigid.velocity.magnitude);
+            
         }
         void Flip(float h)
         {
@@ -69,23 +70,60 @@ namespace MyCat
             else if (h > 0)
                 _renderer.flipX = true;
         }
-        void MoveAnim(float h, float v)
+        void MoveAnima(float h, float v)
         {
             if(h == 0 && v == 0)
                 _anima.SetBool("ismovingLR", false);
             else
                 _anima.SetBool("ismovingLR", true);
         }
-        void MoveAnima(float h, float v)
+        void MoveAnim(float h, float v)
         {
-            if (h != 0 && v == 0)
+            if (h != 0 && v == 0)   // 좌우키
+            {
                 _anima.SetBool("ismovingLR", true);
-            else if (v > 0 && h == 0)
+                _anima.SetBool("ismovingUp", false);
+                _anima.SetBool("ismovingDown", false);
+                Flip(h);
+            }
+            else if (h == 0 && v > 0)   // 상키
+            {
                 _anima.SetBool("ismovingUp", true);
-            else if (v < 0 && h == 0)
+                _anima.SetBool("ismovingLR", false);
+                _anima.SetBool("ismovingDown", false);
+            }
+            else if (h == 0 && v < 0)   // 하키
+            {
                 _anima.SetBool("ismovingDown", true);
-            else if (v != 0 && h != 0)
-                _anima.SetBool("ismovingDiag", true);
+                _anima.SetBool("ismovingLR", false);
+                _anima.SetBool("ismovingUp", false);
+            }
+
+            else if (h != 0 && v > 0)    // 좌우 + 상키
+            {
+                _anima.SetBool("ismovingUp", true);
+                _anima.SetBool("ismovingLR", true);
+                _anima.SetBool("ismovingDown", false);
+                Flip(h);
+            }
+            else if (h != 0 && v < 0)   // 좌우 + 하키
+            {
+                _anima.SetBool("ismovingDown", true);
+                _anima.SetBool("ismovingLR", true);
+                _anima.SetBool("ismovingUp", false);
+                Flip(h);
+            }
+            else
+            {
+                _anima.SetBool("ismovingLR", false);
+                _anima.SetBool("ismovingUp", false);
+                _anima.SetBool("ismovingDown", false);
+
+            }
+        }
+        void SetAnimSpeed()
+        {
+            int tagHash =_anima.GetCurrentAnimatorStateInfo(0).tagHash;
         }
     }
 }
