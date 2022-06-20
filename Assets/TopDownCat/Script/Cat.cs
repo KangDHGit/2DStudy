@@ -10,6 +10,7 @@ namespace MyCat
         Rigidbody2D _rigid;
         SpriteRenderer _renderer;
         Animator _anima;
+        GameObject _target;
 
         //이모티콘 모음
         GameObject _emoteSweat;
@@ -60,8 +61,8 @@ namespace MyCat
             float h = Input.GetAxis("Horizontal");
             float v = Input.GetAxis("Vertical");
             Move(h, v);
-            MoveAnim(h, v);
-            //Flip(h);
+            MoveAnima(h, v);
+            MoveTarget(_target);
         }
         void Move(float h, float v)
         {
@@ -95,10 +96,13 @@ namespace MyCat
         }
         void MoveAnima(float h, float v)
         {
+            _anima.SetFloat("Horizontal", h);
+            _anima.SetFloat("Vertical", v);
             if(h == 0 && v == 0)
-                _anima.SetBool("ismovingLR", false);
+                _anima.SetBool("ismoving", false);
             else
-                _anima.SetBool("ismovingLR", true);
+                _anima.SetBool("ismoving", true);
+            Flip(h);
         }
         void MoveAnim(float h, float v)
         {
@@ -143,28 +147,20 @@ namespace MyCat
                 _anima.SetBool("ismovingDown", false);
             }
         }
-        void SetAnimSpeed()
-        {
-            int tagHash =_anima.GetCurrentAnimatorStateInfo(0).tagHash;
-            
-        }
-        void EatingAnimEnable()
-        {
-            _anima.SetBool("isEating", false);
-        }
-
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            // 밥그릇 충돌시 밥는 애니메이션 및 이모티콘
             if (collision.gameObject.name == "Cat_Dish")
             {
                 Debug.Log("밥 충돌");
                 _anima.SetBool("isEating", true);
-                Invoke("EatingAnimEnable", 5.0f);
                 EatEmoticon();
+                // 충돌시 타겟을 null로
+                SetTarget(null);
             }
         }
-
-        void EatEmoticon()
+        // 밥 주기 관련--------------------------------
+        void EatEmoticon() 
         {
             _emoteSweat.SetActive(true);
             Invoke("StopEat", 5.0f);
@@ -172,8 +168,8 @@ namespace MyCat
         }
         void StopEat()
         {
+            _anima.SetBool("isEating", false);
             _emoteSweat.SetActive(false);
-            //PlayEmoticon("Happy", 3.0f);
             _emoteHappy.SetActive(true);
             Invoke("StopHappy", 3.0f);
             Debug.Log("StopEat");
@@ -183,5 +179,20 @@ namespace MyCat
             _emoteHappy.SetActive(false);
             Debug.Log("StopEat and Happy");
         }
+        // 밥 주기 관련--------------------------------
+        // 타겟 이동 관련------------------------------
+        public void SetTarget(GameObject target)
+        {
+            _target = target;
+        }
+        public void MoveTarget(GameObject target)
+        {
+            if (target == null)
+                return;
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 0.1f);
+            Vector2 direction = (target.transform.position - transform.position).normalized;
+            MoveAnima(direction.x, direction.y);
+        }
+        // 타겟 이동 관련------------------------------
     }
 }

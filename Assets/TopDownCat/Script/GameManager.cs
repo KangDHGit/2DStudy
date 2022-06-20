@@ -11,9 +11,11 @@ namespace MyCat
         public Text _nowTimeTxt;
         public Transform _worldTrans;
         GameObject _dishObj;
+        GameObject _blackCat;
         // Start is called before the first frame update
         void Start()
         {
+            _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
             _dishObj = _worldTrans.transform.Find("Cat_Dish").gameObject;
             _dishObj.SetActive(false);
         }
@@ -28,7 +30,9 @@ namespace MyCat
 
         public void OnClick_Food()
         {
+            Cat cat = _blackCat.GetComponent<Cat>();
             _dishObj.SetActive(true);
+            cat.SetTarget(_dishObj);
         }
     }
 }
