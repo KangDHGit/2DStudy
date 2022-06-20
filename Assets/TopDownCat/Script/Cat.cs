@@ -11,6 +11,10 @@ namespace MyCat
         SpriteRenderer _renderer;
         Animator _anima;
 
+        //이모티콘 모음
+        GameObject _emoteSweat;
+        GameObject _emoteHappy;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -18,6 +22,12 @@ namespace MyCat
             _renderer = GetComponent<SpriteRenderer>();
             _anima = GetComponent<Animator>();
 
+            _emoteSweat = transform.Find("Emote_Sweat").gameObject;
+            _emoteSweat.SetActive(false);
+            _emoteHappy = transform.Find("Emote_Happy").gameObject;
+            _emoteHappy.SetActive(false);
+
+            // idle2, idle3 애니매이션 랜덤 재생 시작
             float delay = Random.Range(3.0f, 5.0f);
             Invoke("PlayIdle", delay);
         }
@@ -29,6 +39,14 @@ namespace MyCat
                 _anima.SetTrigger("idle2");
             if (random == 3)
                 _anima.SetTrigger("idle3");
+            //// 삼항연산자 활용
+            //string temp = (random == 2) ? "idle2" : "idle3";
+            //_anima.SetTrigger("temp");
+
+            // 단항연산자 unary operator
+            // 이항연산자 binary operator
+            // 삼상연산자
+
             float delay = Random.Range(3.0f, 10.0f);
             Invoke("PlayIdle", delay);
         }
@@ -52,13 +70,18 @@ namespace MyCat
 
             float runSpeed = 1.0f;
             if (Input.GetKey(KeyCode.LeftShift))
+            {
                 runSpeed = 2.0f;
+                _anima.speed = 2;
+            }
+            else
+                _anima.speed = 1;
 
             float fixedDeltaTime = Time.fixedDeltaTime;
 
             _rigid.velocity = new Vector2(h, v).normalized * _speed * fixedDeltaTime * runSpeed;
 
-            _anima.SetFloat("velocity", _rigid.velocity.magnitude);
+            //_anima.SetFloat("velocity", _rigid.velocity.magnitude);
             
         }
         void Flip(float h)
@@ -118,12 +141,47 @@ namespace MyCat
                 _anima.SetBool("ismovingLR", false);
                 _anima.SetBool("ismovingUp", false);
                 _anima.SetBool("ismovingDown", false);
-
             }
         }
         void SetAnimSpeed()
         {
             int tagHash =_anima.GetCurrentAnimatorStateInfo(0).tagHash;
+            
+        }
+        void EatingAnimEnable()
+        {
+            _anima.SetBool("isEating", false);
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.name == "Cat_Dish")
+            {
+                Debug.Log("밥 충돌");
+                _anima.SetBool("isEating", true);
+                Invoke("EatingAnimEnable", 5.0f);
+                EatEmoticon();
+            }
+        }
+
+        void EatEmoticon()
+        {
+            _emoteSweat.SetActive(true);
+            Invoke("StopEat", 5.0f);
+            Debug.Log("Eat");
+        }
+        void StopEat()
+        {
+            _emoteSweat.SetActive(false);
+            //PlayEmoticon("Happy", 3.0f);
+            _emoteHappy.SetActive(true);
+            Invoke("StopHappy", 3.0f);
+            Debug.Log("StopEat");
+        }
+        void StopHappy()
+        {
+            _emoteHappy.SetActive(false);
+            Debug.Log("StopEat and Happy");
         }
     }
 }
