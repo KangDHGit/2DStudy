@@ -8,6 +8,8 @@ public class GameData : MonoBehaviour
     public TextAsset _mission_daily_csv; // csv파일 
     public List<GameData_MissionDaily> _mission_daily_data;
     // csv파일의 데이터를 저장
+    public int _coin = 0;
+    public int _heart = 0;
 
     // Start is called before the first frame update
     void Start()

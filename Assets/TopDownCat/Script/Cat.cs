@@ -11,6 +11,9 @@ namespace MyCat
         SpriteRenderer _renderer;
         Animator _anima;
         GameObject _target;
+        public GameObject _gameData;
+        GameData _gameDataScript;
+        
 
         bool _isIdlePlay = false;   // 대기 애니매이션 랜덤재생중인가
         float delay;
@@ -24,6 +27,7 @@ namespace MyCat
             _rigid = GetComponent<Rigidbody2D>();
             _renderer = GetComponent<SpriteRenderer>();
             _anima = GetComponent<Animator>();
+            _gameDataScript = _gameData.GetComponent<GameData>();
 
             _emoteSweat = transform.Find("Emote_Sweat").gameObject;
             _emoteSweat.SetActive(false);
@@ -140,6 +144,21 @@ namespace MyCat
                 EatEmoticon();
                 // 충돌시 타겟을 null로
                 SetTarget(null);
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.gameObject.name.Contains("Coin"))
+            {
+                Destroy(collision.gameObject);
+                _gameDataScript._coin++;
+                Debug.Log(_gameDataScript._coin);
+            }
+            if (collision.gameObject.name.Contains("Heart"))
+            {
+                Destroy(collision.gameObject);
+                _gameDataScript._heart++;
+                Debug.Log(_gameDataScript._heart);
             }
         }
         // 밥 주기 관련--------------------------------
