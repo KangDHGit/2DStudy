@@ -12,7 +12,6 @@ namespace MyCat
         Animator _anima;
         GameObject _target;
         public GameManager _gameMgr;
-        
 
         bool _isIdlePlay = false;   // 대기 애니매이션 랜덤재생중인가
         float delay;

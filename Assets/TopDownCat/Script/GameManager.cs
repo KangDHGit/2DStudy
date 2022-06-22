@@ -48,7 +48,6 @@ namespace MyCat
             Cat cat = _blackCat.GetComponent<Cat>();
             _dishObj.SetActive(true);
             cat.SetTarget(_dishObj);
-            _buttonMgr.EatButtonOn();
         }
         public void OnFinish_Eat()
         {

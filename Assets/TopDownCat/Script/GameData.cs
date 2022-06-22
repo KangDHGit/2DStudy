@@ -12,7 +12,7 @@ public class GameData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
         //Debug.Log(_mission_daily_csv);
         string text = _mission_daily_csv.text; // csv파일을 string으로 변환
         _mission_daily_data = new List<GameData_MissionDaily>();

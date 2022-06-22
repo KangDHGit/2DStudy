@@ -13889,7 +13889,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1442822813
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14253,8 +14253,8 @@ RectTransform:
   m_Children:
   - {fileID: 71806721}
   - {fileID: 1843371903}
-  m_Father: {fileID: 1585217214}
-  m_RootOrder: 8
+  m_Father: {fileID: 1832002020}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -14305,9 +14305,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1294202457}
-        m_TargetAssemblyTypeName: MyCat.GameManager, Assembly-CSharp
-        m_MethodName: OnClick_Food
+      - m_Target: {fileID: 1832002021}
+        m_TargetAssemblyTypeName: MyCat.ButtonManager, Assembly-CSharp
+        m_MethodName: OnClickEat
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14338,7 +14338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -1553674166, guid: 50774374d4f0d3d4184f30e34dce7a00, type: 3}
-  m_Type: 3
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16930,7 +16930,6 @@ RectTransform:
   - {fileID: 1469954727}
   - {fileID: 1442822813}
   - {fileID: 203518336}
-  - {fileID: 1487085873}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18371,7 +18370,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1487085873}
   m_Father: {fileID: 1585217214}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18392,7 +18392,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05486d691b886e04bbdfa8940fc67e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eatButtonUI: {fileID: 0}
+  _skillObjList: []
+  _skillData: []
+  _worldTrans: {fileID: 1836738559}
+  _eatButtonUI: {fileID: 1487085872}
+  _eatButton: {fileID: 0}
+  _coolTimeImg: {fileID: 0}
+  _eatCoolTime: 10
 --- !u!1 &1836738558
 GameObject:
   m_ObjectHideFlags: 0
@@ -18416,8 +18422,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1836738558}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000030517578, y: -0.000015258789, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18440,7 +18446,7 @@ GameObject:
   - component: {fileID: 1843371905}
   - component: {fileID: 1843371904}
   m_Layer: 5
-  m_Name: CoolDownBg
+  m_Name: CoolTimeImg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18473,7 +18479,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843371902}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -18491,7 +18497,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
