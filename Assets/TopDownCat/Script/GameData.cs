@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.IO; // 파일 다루는 C#라이브러리
 
 public class GameData : MonoBehaviour
 {
     public TextAsset _mission_daily_csv; // csv파일 
-    public List<GameData_MissionDaily> _mission_daily_data;
-    // csv파일의 데이터를 저장
-    public int _coin = 0;
-    public int _heart = 0;
-
+    public List<GameData_MissionDaily> _mission_daily_data; // csv파일의 데이터를 저장
+    
     // Start is called before the first frame update
     void Start()
     {
-        //Debug.Log(_mission_daily_csv);
 
-        
+        //Debug.Log(_mission_daily_csv);
         string text = _mission_daily_csv.text; // csv파일을 string으로 변환
         _mission_daily_data = new List<GameData_MissionDaily>();
         // StringReader는 System.IO가 제공
@@ -43,8 +40,6 @@ public class GameData : MonoBehaviour
                 }
             }
         }
-
-
     }
 
     // Update is called once per frame

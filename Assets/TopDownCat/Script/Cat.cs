@@ -11,8 +11,7 @@ namespace MyCat
         SpriteRenderer _renderer;
         Animator _anima;
         GameObject _target;
-        public GameObject _gameData;
-        GameData _gameDataScript;
+        public GameManager _gameMgr;
         
 
         bool _isIdlePlay = false;   // 대기 애니매이션 랜덤재생중인가
@@ -27,7 +26,6 @@ namespace MyCat
             _rigid = GetComponent<Rigidbody2D>();
             _renderer = GetComponent<SpriteRenderer>();
             _anima = GetComponent<Animator>();
-            _gameDataScript = _gameData.GetComponent<GameData>();
 
             _emoteSweat = transform.Find("Emote_Sweat").gameObject;
             _emoteSweat.SetActive(false);
@@ -150,15 +148,14 @@ namespace MyCat
         {
             if(collision.gameObject.name.Contains("Coin"))
             {
+                _gameMgr.AddCoin(1);
                 Destroy(collision.gameObject);
-                _gameDataScript._coin++;
-                Debug.Log(_gameDataScript._coin);
             }
             if (collision.gameObject.name.Contains("Heart"))
             {
+                _gameMgr.AddHeart(1);
                 Destroy(collision.gameObject);
-                _gameDataScript._heart++;
-                Debug.Log(_gameDataScript._heart);
+                
             }
         }
         // 밥 주기 관련--------------------------------
@@ -173,6 +170,9 @@ namespace MyCat
             _anima.SetBool("isEating", false);
             _emoteSweat.SetActive(false);
             _emoteHappy.SetActive(true);
+            _gameMgr.OnFinish_Eat();
+            _gameMgr.DropItem(_gameMgr._heartTemplate);
+
             Invoke("StopHappy", 3.0f);
             Debug.Log("StopEat");
         }
