@@ -27,7 +27,7 @@ namespace MyCat
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
             _dishObj = _worldTrans.transform.Find("Cat_Dish").gameObject;
             _dishObj.SetActive(false);
-            _heartTemplate.SetActive(false);
+            //_heartTemplate.SetActive(false);
 
             _coinTxt = _canvasObj.transform.Find("Resource").Find("Coin").Find("Coin_Txt").GetComponent<Text>();
             _coinTxt.text = 0.ToString("D4");
@@ -43,16 +43,12 @@ namespace MyCat
             _nowTimeTxt.text = string.Format("{0:yyyy년M월dd일 tt hh:mm:ss}", dt);
         }
 
-        public void OnClick_Food()
-        {
-            Cat cat = _blackCat.GetComponent<Cat>();
-            _dishObj.SetActive(true);
-            cat.SetTarget(_dishObj);
-        }
-        public void OnFinish_Eat()
-        {
-            _dishObj.SetActive(false);
-        }
+        //public void OnClick_Food()
+        //{
+        //    Cat cat = _blackCat.GetComponent<Cat>();
+        //    _dishObj.SetActive(true);
+        //    cat.SetTarget(_dishObj);
+        //}
 
         public void AddCoin(int count)
         {
@@ -67,11 +63,30 @@ namespace MyCat
             _heartTxt.text = _heartCount.ToString("D4");
         }
 
+        public void OnFinish_Eat()
+        {
+            _dishObj.SetActive(false);
+        }
+
         public void DropItem(GameObject item)
         {
-            GameObject itemtemp = Instantiate(item);
-            itemtemp.transform.position = _dishObj.transform.position;
-            itemtemp.SetActive(true);
+            GameObject itemobj = Instantiate(item);
+
+            // 단위 원범위(1)
+            float maxRadius = 1.5f;
+            float minRadius = 1.2f;
+            Vector2 circleRange = UnityEngine.Random.insideUnitCircle * maxRadius;
+            Vector2 randomPos;
+
+            if (circleRange.magnitude < 1.0)
+                randomPos = circleRange.normalized * minRadius;
+            else
+                randomPos = circleRange;
+
+
+            itemobj.transform.position = _blackCat.transform.position
+                                           + new Vector3(randomPos.x, randomPos.y);
+            itemobj.SetActive(true);
         }
     }
 }

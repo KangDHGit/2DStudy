@@ -12,6 +12,8 @@ namespace MyCat
         Animator _anima;
         GameObject _target;
         public GameManager _gameMgr;
+        public Transform _worldTrans;
+
 
         bool _isIdlePlay = false;   // 대기 애니매이션 랜덤재생중인가
         float delay;
@@ -79,6 +81,7 @@ namespace MyCat
         void Update()
         {
             PlayIdleCheck();
+            CheckDistance();
         }
         private void FixedUpdate()
         {
@@ -196,5 +199,25 @@ namespace MyCat
             MoveAnima(direction.x, direction.y);
         }
         // 타겟 이동 관련------------------------------
+
+        public void CheckDistance()
+        {
+            Transform jarTrans = _worldTrans.transform.Find("Jar");
+            // 테스트로 책상과 고양이 사이의 거리를 체크
+            // 거리가 충분히 가까우면 로그 출력
+            Vector2 catPos = transform.position;
+            Vector2 objPos = jarTrans.position;
+
+            float distance = Vector2.Distance(catPos, objPos);
+            if(distance <= 1.0f)
+            {
+                Debug.Log("항아리 근접");
+            }
+            //float xDist = Mathf.Abs(catPos.x - ObjPos.x);
+            //float yDist = Mathf.Abs(catPos.y - ObjPos.y);
+
+            //float distance = Mathf.Sqrt(xDist * xDist + yDist * yDist);
+
+        }
     }
 }

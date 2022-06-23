@@ -8,11 +8,12 @@ namespace MyCat
 {
     public class ButtonManager : MonoBehaviour
     {
-        public List<GameObject> _skillObjList;
-        public List<SkillData> _skillData;
+        //public List<GameObject> _skillObjList;
+        //public List<SkillData> _skillData;
 
         public Transform _worldTrans;
 
+        // 쿨타임 관련 변수
         public GameObject _eatButtonUI;
         public Button _eatButton;
         public Image _coolTimeImg;
@@ -20,7 +21,7 @@ namespace MyCat
 
         GameObject _dishObj;
         GameObject _blackCat;
-        // Start is called before the first frame update
+
         void Start()
         {
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
@@ -29,8 +30,8 @@ namespace MyCat
 
             _eatButton = _eatButtonUI.GetComponent<Button>();
             _coolTimeImg = _eatButtonUI.transform.Find("CoolTimeImg").GetComponent<Image>();
-            _coolTimeImg.enabled = false;
-            _coolTimeImg.fillAmount = 1.0f;
+            _coolTimeImg.enabled = false; // 쿨타임 이미지 비활성화
+            _coolTimeImg.fillAmount = 1.0f; // 쿨타임 fillAmount 초기화
         }
 
         // Update is called once per frame
@@ -45,10 +46,10 @@ namespace MyCat
             _dishObj.SetActive(true);
             cat.SetTarget(_dishObj);
 
-            // ��Ÿ�� ���� ��ư ��Ȱ��ȭ
+            // 쿨타임동안 버튼 비활성화
             _eatButton.enabled = false;
-            Invoke("EatCoolTimeOver", _eatCoolTime);    // ��Ÿ�������Ŀ� ��ư Ȱ��ȭ
-
+            Invoke("EatCoolTimeOver", _eatCoolTime);    // 쿨타임종료시 버튼 활성화
+            // 쿨타임 이미지 활성화 및 fillAmount 초기화
             _coolTimeImg.enabled = true;
             _coolTimeImg.fillAmount = 1.0f;
         }
@@ -58,7 +59,7 @@ namespace MyCat
             _eatButton.enabled = true;
         }
 
-        // ��Ÿ�ӿ� ���� CoolTimeImg�� filAmount�� �����ϴ� �Լ�
+        // 업데이트 함수에서 쿨타임 이미지가 활성화 되면 쿨타임에 맞게 fillAmount조절
         void PlayCoolTimeImg(Image coolTimeImg)
         {
             if (coolTimeImg == null || coolTimeImg.enabled == false)
@@ -68,12 +69,12 @@ namespace MyCat
                 coolTimeImg.enabled = false;
         }
 
-        void GetSkillData(List<GameObject> skillObjList)
-        {
-            foreach (var skillObj in skillObjList)
-            {
-                _skillData.Add(skillObj.GetComponent<SkillData>());
-            }
-        }
+        //void GetSkillData(List<GameObject> skillObjList)
+        //{
+        //    foreach (var skillObj in skillObjList)
+        //    {
+        //        _skillData.Add(skillObj.GetComponent<SkillData>());
+        //    }
+        //}
     }
 }
