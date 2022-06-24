@@ -21,6 +21,10 @@ namespace MyCat
         GameObject _emoteSweat;
         GameObject _emoteHappy;
 
+        // 랜덤이동 관련
+        public GameObject _randomMoveObj;
+
+
         // Start is called before the first frame update
         void Start()
         {
@@ -33,9 +37,13 @@ namespace MyCat
             _emoteHappy = transform.Find("Emote_Happy").gameObject;
             _emoteHappy.SetActive(false);
 
+            _randomMoveObj.SetActive(false);
+
             // idle2, idle3 애니매이션 랜덤 재생 시작
             //float delay = Random.Range(5.0f, 10.0f);
             //Invoke("PlayRandomIdle", delay);
+
+            Invoke("MakeRandomMoveObj", 5.0f);
         }
 
         void PlayRandomIdle() // 대기 애니메이션 랜덤 재생
@@ -90,6 +98,7 @@ namespace MyCat
             Move(h, v);
             MoveAnima(h, v);
             MoveTarget(_target);
+            //MoveRandomPos();
         }
         void Move(float h, float v)
         {
@@ -144,6 +153,12 @@ namespace MyCat
                 EatEmoticon();
                 // 충돌시 타겟을 null로
                 SetTarget(null);
+            }
+
+            if (collision.gameObject.name.Contains("RandomMoveTarget"))
+            {
+                SetTarget(null);
+                GameObject.Destroy(collision.gameObject);
             }
         }
         private void OnTriggerEnter2D(Collider2D collision)
@@ -202,7 +217,7 @@ namespace MyCat
 
         public void CheckDistance()
         {
-            Transform jarTrans = _worldTrans.transform.Find("Jar");
+            Transform jarTrans = _worldTrans.transform.Find("Item").Find("Jar");
             // 테스트로 책상과 고양이 사이의 거리를 체크
             // 거리가 충분히 가까우면 로그 출력
             Vector2 catPos = transform.position;
@@ -217,7 +232,43 @@ namespace MyCat
             //float yDist = Mathf.Abs(catPos.y - ObjPos.y);
 
             //float distance = Mathf.Sqrt(xDist * xDist + yDist * yDist);
+        }
 
+        public void MakeRandomMoveObj()
+        {
+            // 랜덤으로 0, 1 뽑기
+            int random = Random.Range(0, 2);
+
+            // 움직임 범위
+            float maxRadius = 2f;
+            float minRadius = 1.5f;
+            // 0이면 제자리, 1이면 움직임
+            if (random == 1)
+            {
+                GameObject MoveTarget = Instantiate(_randomMoveObj);
+                Vector2 circleRange = UnityEngine.Random.insideUnitCircle * maxRadius;
+                Vector2 randomPos;
+                if (circleRange.magnitude < minRadius)
+                    randomPos = circleRange.normalized * minRadius;
+                else
+                    randomPos = circleRange;
+
+                MoveTarget.transform.position = transform.position
+                                                + new Vector3(randomPos.x, randomPos.y);
+                MoveTarget.SetActive(true);
+
+                SetTarget(MoveTarget);
+            }
+            Invoke("MakeRandomMoveObj", 5.0f);
+        }
+
+        public void MoveRandomPos()
+        {
+
+            //Vector3 movePos = transform.position + randomPos;
+            //Vector3.MoveTowards(transform.position, movePos, 0.5f);
+            //Vector3 direction = (movePos - transform.position).normalized;
+            //MoveAnima(direction.x, direction.y);
         }
     }
 }

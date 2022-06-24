@@ -25,7 +25,7 @@ namespace MyCat
         void Start()
         {
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
-            _dishObj = _worldTrans.transform.Find("Cat_Dish").gameObject;
+            _dishObj = _worldTrans.transform.Find("Item").Find("Cat_Dish").gameObject;
             //_skillObjList = GameObject.FindGameObjectsWithTag("Skill_Button").ToList<GameObject>();
 
             _eatButton = _eatButtonUI.GetComponent<Button>();

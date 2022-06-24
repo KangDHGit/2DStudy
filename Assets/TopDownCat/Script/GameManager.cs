@@ -25,7 +25,7 @@ namespace MyCat
         void Start()
         {
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
-            _dishObj = _worldTrans.transform.Find("Cat_Dish").gameObject;
+            _dishObj = _worldTrans.transform.Find("Item").Find("Cat_Dish").gameObject;
             _dishObj.SetActive(false);
             //_heartTemplate.SetActive(false);
 
@@ -78,7 +78,7 @@ namespace MyCat
             Vector2 circleRange = UnityEngine.Random.insideUnitCircle * maxRadius;
             Vector2 randomPos;
 
-            if (circleRange.magnitude < 1.0)
+            if (circleRange.magnitude < minRadius)
                 randomPos = circleRange.normalized * minRadius;
             else
                 randomPos = circleRange;
