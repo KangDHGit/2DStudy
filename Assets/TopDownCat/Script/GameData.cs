@@ -6,9 +6,11 @@ using System.IO; // 파일 다루는 C#라이브러리
 
 public class GameData : MonoBehaviour
 {
-    public TextAsset _mission_daily_csv; // csv파일 
-    public List<GameData_MissionDaily> _mission_daily_data; // csv파일의 데이터를 저장
-    
+    public TextAsset _mission_daily_csv; // 일일미션 csv파일 
+    public List<GameData_MissionDaily> _mission_daily_data; // 일일미션 csv파일의 데이터를 저장
+
+    public TextAsset _shop_item_csv;
+
     // Start is called before the first frame update
     void Start()
     {

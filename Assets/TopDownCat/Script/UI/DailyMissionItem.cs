@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace MyCat
 {
-    public class DailyMissionItem : MonoBehaviour
+    public class DailyMissionItem : MonoBehaviour   // DailyMissionUI의 자식오브젝트의 컴포넌트(실제 일일미션이 적힌 UI)
     {
         public Text _nameTxt;
         public Text _cleatCountTxt;

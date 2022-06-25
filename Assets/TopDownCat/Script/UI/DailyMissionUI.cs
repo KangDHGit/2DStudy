@@ -7,11 +7,11 @@ namespace MyCat
     public class DailyMissionUI : MonoBehaviour
     {
         public GameData _gameData;
-        public List<DailyMissionItem> _itemList;
+        public List<DailyMissionItem> _itemList;    // DailyMissionUI의 자식오브젝트들의 DailyMissionitem 컴포넌트 리스트
         // Start is called before the first frame update
         void Start()
         {
-            DailyMissionItem[] array = GetComponentsInChildren<DailyMissionItem>();
+            DailyMissionItem[] array = GetComponentsInChildren<DailyMissionItem>(); // 자식오브젝트들의 DailyMissionitem 컴포넌트 한번에 가져오기
             // List에 여러개(배열)을 집어넣을 때는 AddRange 함수 쓴다
             _itemList.AddRange(array);
 

@@ -78,6 +78,12 @@ namespace MyCat
             _uiTrans.Find("ShopUI").gameObject.SetActive(true);
         }
 
+        // ShopUI의 CloseBtn
+        public void OnClickShopClose()
+        {
+            _uiTrans.Find("ShopUI").gameObject.SetActive(false);
+        }
+
         // ShopUI에서 상품을 클릭히면 BuyUI 활성화
         public void OnClickShopItem()
         {
