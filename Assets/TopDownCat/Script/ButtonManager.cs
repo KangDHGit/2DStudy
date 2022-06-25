@@ -12,26 +12,30 @@ namespace MyCat
         //public List<SkillData> _skillData;
 
         public Transform _worldTrans;
-
-        // 쿨타임 관련 변수
-        public GameObject _eatButtonUI;
-        public Button _eatButton;
-        public Image _coolTimeImg;
-        public float _eatCoolTime;
-
+        public Transform _uiTrans;
         GameObject _dishObj;
         GameObject _blackCat;
+
+        // 쿨타임 관련 변수
+        Button _eatButton;
+        Image _coolTimeImg;
+        public float _eatCoolTime;
+        //---------------------- 
+
+        // 상점
+        Button _shopButton;
 
         void Start()
         {
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
             _dishObj = _worldTrans.transform.Find("Item").Find("Cat_Dish").gameObject;
-            //_skillObjList = GameObject.FindGameObjectsWithTag("Skill_Button").ToList<GameObject>();
 
-            _eatButton = _eatButtonUI.GetComponent<Button>();
-            _coolTimeImg = _eatButtonUI.transform.Find("CoolTimeImg").GetComponent<Image>();
+            _eatButton = _uiTrans.Find("EatButton").GetComponent<Button>();
+            _coolTimeImg = _uiTrans.Find("EatButton").Find("CoolTimeImg").GetComponent<Image>();
             _coolTimeImg.enabled = false; // 쿨타임 이미지 비활성화
             _coolTimeImg.fillAmount = 1.0f; // 쿨타임 fillAmount 초기화
+
+            _shopButton = _uiTrans.Find("ShopButton").GetComponent<Button>();
         }
 
         // Update is called once per frame
@@ -53,7 +57,6 @@ namespace MyCat
             _coolTimeImg.enabled = true;
             _coolTimeImg.fillAmount = 1.0f;
         }
-
         void EatCoolTimeOver()
         {
             _eatButton.enabled = true;
@@ -69,12 +72,16 @@ namespace MyCat
                 coolTimeImg.enabled = false;
         }
 
-        //void GetSkillData(List<GameObject> skillObjList)
-        //{
-        //    foreach (var skillObj in skillObjList)
-        //    {
-        //        _skillData.Add(skillObj.GetComponent<SkillData>());
-        //    }
-        //}
+        // ShopButton 누르면 ShopUI 활성화
+        public void OnClickShopButton()
+        {
+            _uiTrans.Find("ShopUI").gameObject.SetActive(true);
+        }
+
+        // ShopUI에서 상품을 클릭히면 BuyUI 활성화
+        public void OnClickShopItem()
+        {
+            _uiTrans.Find("BuyUI").gameObject.SetActive(true);
+        }
     }
 }

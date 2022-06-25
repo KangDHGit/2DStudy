@@ -208,7 +208,7 @@ TextureImporter:
         width: 30
         height: 30
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 4}
       outline: []
       physicsShape: []
@@ -216,6 +216,27 @@ TextureImporter:
       bones: []
       spriteID: 785e0547b37a0c0468ef3f2c46d2cd6d
       internalID: -1553674166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShopIcon
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 214
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4744fe9e9616d204cbda102ec17fbc18
+      internalID: 705058445
       vertices: []
       indices: 
       edges: []
@@ -235,6 +256,7 @@ TextureImporter:
       GUI_0: 522480868
       GUI_3: 1226957842
       GUI_2: -12791646
+      ShopIcon: 705058445
       GUI_1: 466796667
   spritePackingTag: 
   pSDRemoveMatte: 0
