@@ -10,11 +10,13 @@ public class GameData : MonoBehaviour
     public List<GameData_MissionDaily> _mission_daily_data; // 일일미션 csv파일의 데이터를 저장
 
     public TextAsset _shop_item_csv;
+    public List<GameData_ShopItem> _shopItem_data;
 
     // Start is called before the first frame update
     void Start()
     {
         ReadMissionDaily_csv();
+        ReadShopItem_csv();
     }
 
     // Update is called once per frame
@@ -49,6 +51,33 @@ public class GameData : MonoBehaviour
                     temp.desc = record[4];
 
                     _mission_daily_data.Add(temp);
+                }
+            }
+        }
+    }
+
+    void ReadShopItem_csv()
+    {
+        string text = _shop_item_csv.text;
+        _shopItem_data = new List<GameData_ShopItem>();
+        using(StringReader reader = new StringReader(text))
+        {
+            string line = reader.ReadLine();
+            if(line != null)
+            {
+                while((line = reader.ReadLine()) != null)
+                {
+                    //Debug.Log("데이터 : " + line);
+                    string[] record = line.Split(',');
+
+                    Debug.Assert(record.Length == 3);
+
+                    GameData_ShopItem temp = new GameData_ShopItem();
+                    temp._id = int.Parse(record[0]);
+                    temp._name = record[1];
+                    temp._price = int.Parse(record[2]);
+
+                    _shopItem_data.Add(temp);
                 }
             }
         }

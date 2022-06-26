@@ -97,8 +97,16 @@ namespace MyCat
 
         public void OnClickBuyYes()
         {
+            // 1. 코인 텍스트 불러와서 int로 변환
             Text CoinTxt = _uiTrans.Find("Resource").Find("Coin").Find("Coin_Txt").GetComponent<Text>();
             int.TryParse(CoinTxt.text, out int Coin);
+
+            // 2. 구매할 아이템 가격 불러오기
+
+            // 3. 아이템 가격만큼 코인 감소(가격보다 적으면 구매 불가 4번실행 x)
+
+            // 4. 구매 완료 후 창닫기
+            _uiTrans.Find("BuyUI").gameObject.SetActive(false);
         }
     }
 }

@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class ShopUI : MonoBehaviour
+{
+    public GameData _gameData;
+    public List<ShopItem> _itemList;
+    void Start()
+    {
+        ShopItem[] array = GetComponentsInChildren<ShopItem>();
+        _itemList.AddRange(array);
+        //_itemList.AddRange(GetComponentsInChildren<ShopItem>()); // 수정할 자식오브젝트의 컴포넌트
+
+        List<GameData_ShopItem> shopItemList = _gameData._shopItem_data; // 집어넣을 데이터
+        for (int i = 0; i < _itemList.Count; i++)
+        {
+            _itemList[i].SetData(shopItemList[i]);
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
