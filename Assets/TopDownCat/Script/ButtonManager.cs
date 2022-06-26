@@ -78,7 +78,7 @@ namespace MyCat
             _uiTrans.Find("ShopUI").gameObject.SetActive(true);
         }
 
-        // ShopUI의 CloseBtn
+        // ShopUI의 CloseBtn누르면 ShopUI 비활성화
         public void OnClickShopClose()
         {
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
@@ -88,6 +88,17 @@ namespace MyCat
         public void OnClickShopItem()
         {
             _uiTrans.Find("BuyUI").gameObject.SetActive(true);
+        }
+
+        public void OnClickBuyNo()
+        {
+            _uiTrans.Find("BuyUI").gameObject.SetActive(false);
+        }
+
+        public void OnClickBuyYes()
+        {
+            Text CoinTxt = _uiTrans.Find("Resource").Find("Coin").Find("Coin_Txt").GetComponent<Text>();
+            int.TryParse(CoinTxt.text, out int Coin);
         }
     }
 }
