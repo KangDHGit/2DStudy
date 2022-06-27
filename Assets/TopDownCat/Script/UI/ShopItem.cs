@@ -8,7 +8,7 @@ namespace MyCat
     public class ShopItem : MonoBehaviour
     {
         public Transform _uiTrans;
-        BuyUI _buyUI;
+        public BuyUI _buyUI;
 
         Image _item_Icon;
         public Text _item_Name;
@@ -31,6 +31,7 @@ namespace MyCat
             _item_Icon.sprite = Resources.Load<Sprite>(data._sprite);
         }
 
+        // ShopItem을 누르면 계산을 위해 BuyUI에게 가격 전달
         public void SetPriceTxt_BuyUI()
         {
             _buyUI._itemPrice_Txt = _price_Txt;

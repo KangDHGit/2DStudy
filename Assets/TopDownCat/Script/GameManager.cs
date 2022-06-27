@@ -30,9 +30,9 @@ namespace MyCat
             //_heartTemplate.SetActive(false);
 
             _coinTxt = _canvasObj.transform.Find("Resource").Find("Coin").Find("Coin_Txt").GetComponent<Text>();
-            _coinTxt.text = 0.ToString("D4");
+            //_coinTxt.text = 0.ToString("D4");
             _heartTxt = _canvasObj.transform.Find("Resource").Find("Heart").Find("Heart_Txt").GetComponent<Text>();
-            _heartTxt.text = 0.ToString("D4");
+            //_heartTxt.text = 0.ToString("D4");
         }
 
         // Update is called once per frame
