@@ -11,5 +11,8 @@ public class GameData_MissionDaily
     public string name;
     public int clearcount;
     public int gem_reward;
+    public string reward_icon;
     public string desc;
+
+    public Sprite reward_sprite;
 }

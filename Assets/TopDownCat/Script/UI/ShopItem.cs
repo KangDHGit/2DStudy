@@ -20,5 +20,8 @@ public class ShopItem : MonoBehaviour
     {
         _item_Name.text = data._name;
         _price_Txt.text = data._price.ToString("#,0");
+        if (data._sprite == "")
+            return;
+        _item_Icon.sprite = Resources.Load<Sprite>(data._sprite);
     }
 }

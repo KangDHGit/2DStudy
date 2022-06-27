@@ -10,9 +10,9 @@ public class ShopUI : MonoBehaviour
     {
         ShopItem[] array = GetComponentsInChildren<ShopItem>();
         _itemList.AddRange(array);
-        //_itemList.AddRange(GetComponentsInChildren<ShopItem>()); // ¼öÁ¤ÇÒ ÀÚ½Ä¿ÀºêÁ§Æ®ÀÇ ÄÄÆ÷³ÍÆ®
+        //_itemList.AddRange(GetComponentsInChildren<ShopItem>()); // ìˆ˜ì •í•  ìì‹ ìƒì ì•„ì´í…œë“¤
 
-        List<GameData_ShopItem> shopItemList = _gameData._shopItem_data; // Áı¾î³ÖÀ» µ¥ÀÌÅÍ
+        List<GameData_ShopItem> shopItemList = _gameData._shopItem_data; // csvíŒŒì¼ì„ ì˜®ê¸´ë°ì´í„°
         for (int i = 0; i < _itemList.Count; i++)
         {
             _itemList[i].SetData(shopItemList[i]);

@@ -30,6 +30,8 @@ namespace MyCat
             _cleatCountTxt.text = string.Format($"{currentCount} / {totalCount}");
             // 보상
             _rewardTxt.text = data.gem_reward.ToString();
+            // 아이콘 변경
+            _rewardIcon.sprite = data.reward_sprite;
         }
     }
 }

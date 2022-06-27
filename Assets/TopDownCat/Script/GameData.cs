@@ -12,9 +12,20 @@ public class GameData : MonoBehaviour
     public TextAsset _shop_item_csv;
     public List<GameData_ShopItem> _shopItem_data;
 
+    public SpriteRenderer _testSprite;
     // Start is called before the first frame update
     void Start()
     {
+        Sprite[] spList = Resources.LoadAll<Sprite>("spritesheet_16x16");
+        //_testSprite.sprite = Resources.Load<Sprite>("Water");
+        for (int i = 0; i < spList.Length; i++)
+        {
+            if(spList[i].name == "gem_blue")
+            {
+                _testSprite.sprite = spList[i];
+                break;
+            }
+        }
         ReadMissionDaily_csv();
         ReadShopItem_csv();
     }
@@ -41,16 +52,27 @@ public class GameData : MonoBehaviour
                     //Debug.Log("데이터 : " + line);
                     string[] record = line.Split(',');
 
-                    Debug.Assert(record.Length == 5); // 5개 인지 확인
+                    Debug.Assert(record.Length == 6); // 5개 인지 확인
 
                     GameData_MissionDaily temp = new GameData_MissionDaily();
                     temp.id = int.Parse(record[0]);
                     temp.name = record[1];
                     temp.clearcount = int.Parse(record[2]);
                     temp.gem_reward = int.Parse(record[3]);
-                    temp.desc = record[4];
+                    temp.reward_icon = record[4];
+                    temp.desc = record[5];
 
                     _mission_daily_data.Add(temp);
+                    // 스프라이트 찾아두기
+                    Sprite[] spList = Resources.LoadAll<Sprite>("spritesheet_16x16");
+                    for (int i = 0; i < spList.Length; i++)
+                    {
+                        if (spList[i].name == temp.reward_icon)
+                        {
+                            temp.reward_sprite = spList[i];
+                            break;
+                        }
+                    }
                 }
             }
         }
@@ -70,12 +92,13 @@ public class GameData : MonoBehaviour
                     //Debug.Log("데이터 : " + line);
                     string[] record = line.Split(',');
 
-                    Debug.Assert(record.Length == 3);
+                    Debug.Assert(record.Length == 4);
 
                     GameData_ShopItem temp = new GameData_ShopItem();
                     temp._id = int.Parse(record[0]);
                     temp._name = record[1];
                     temp._price = int.Parse(record[2]);
+                    temp._sprite = record[3];
 
                     _shopItem_data.Add(temp);
                 }

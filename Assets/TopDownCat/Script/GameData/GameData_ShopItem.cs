@@ -9,4 +9,5 @@ public class GameData_ShopItem
     public int _id;
     public string _name;
     public int _price;
+    public string _sprite;
 }
