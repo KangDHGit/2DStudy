@@ -23,7 +23,7 @@ namespace MyCat
         //---------------------- 
 
         // 상점
-        Button _shopButton;
+        GameObject _buyUI;
 
         void Start()
         {
@@ -35,7 +35,7 @@ namespace MyCat
             _coolTimeImg.enabled = false; // 쿨타임 이미지 비활성화
             _coolTimeImg.fillAmount = 1.0f; // 쿨타임 fillAmount 초기화
 
-            _shopButton = _uiTrans.Find("ShopButton").GetComponent<Button>();
+            _buyUI = _uiTrans.Find("BuyUI").gameObject;
         }
 
         // Update is called once per frame
