@@ -11,8 +11,8 @@ namespace MyCat
         public BuyUI _buyUI;
 
         Image _item_Icon;
-        public Text _item_Name;
-        public Text _price_Txt;
+        Text _item_Name;
+        Text _price_Txt;
         // Start is called before the first frame update
         void Start()
         {
@@ -30,11 +30,16 @@ namespace MyCat
                 return;
             _item_Icon.sprite = Resources.Load<Sprite>(data._sprite);
         }
-
-        // ShopItemÀ» ´©¸£¸é °è»êÀ» À§ÇØ BuyUI¿¡°Ô °¡°İ Àü´Ş
-        public void SetPriceTxt_BuyUI()
+        // ShopUIì—ì„œ ìƒí’ˆì„ í´ë¦­íˆë©´ BuyUI í™œì„±í™”
+        public void OnClickShopItem()
         {
-            _buyUI._itemPrice_Txt = _price_Txt;
+            _uiTrans.Find("BuyUI").gameObject.SetActive(true);
+            _buyUI.SetBuyItem(this);
+        }
+        // ì•„ì´í…œ ê°€ê²©(string) "," ì œê±° í›„ string ë°˜í™˜
+        public string PriceDeleteComma()
+        {
+            return _price_Txt.text.Replace(",", "");
         }
     }
 }

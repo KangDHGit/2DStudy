@@ -22,10 +22,19 @@ namespace MyCat
             _heart_Txt.text = string.Format($"{_heart:D4}");
         }
 
-        // Update is called once per frame
-        void Update()
+        public void CalculateHeart(int count)
         {
+            if (count < 0 &&_heart < Mathf.Abs(count))
+                _heart += count;
+            _heart_Txt.text = _heart.ToString("D4");
+        }
 
+        public void CalculateCoin(int count)
+        {
+            if (count < 0 && _coin < Mathf.Abs(count))
+                return;
+            _coin += count;
+            _coin_Txt.text = string.Format($"{_coin:D4}");
         }
     }
 }

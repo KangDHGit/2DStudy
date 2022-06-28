@@ -6,6 +6,7 @@ namespace MyCat
 {
     public class ShopUI : MonoBehaviour
     {
+        public Transform _uiTrans;
         public GameData _gameData;
         public List<ShopItem> _itemList;
         void Start()
@@ -19,13 +20,6 @@ namespace MyCat
             {
                 _itemList[i].SetData(shopItemList[i]);
             }
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
         }
     }
 }

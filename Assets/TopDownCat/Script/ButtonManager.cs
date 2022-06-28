@@ -8,9 +8,6 @@ namespace MyCat
 {
     public class ButtonManager : MonoBehaviour
     {
-        //public List<GameObject> _skillObjList;
-        //public List<SkillData> _skillData;
-
         public Transform _worldTrans;
         public Transform _uiTrans;
         GameObject _dishObj;
@@ -22,9 +19,6 @@ namespace MyCat
         public float _eatCoolTime;
         //---------------------- 
 
-        // 상점구매
-        BuyUI _buyUI;
-
         void Start()
         {
             _blackCat = _worldTrans.transform.Find("BlackCat").gameObject;
@@ -34,8 +28,6 @@ namespace MyCat
             _coolTimeImg = _uiTrans.Find("EatButton").Find("CoolTimeImg").GetComponent<Image>();
             _coolTimeImg.enabled = false; // 쿨타임 이미지 비활성화
             _coolTimeImg.fillAmount = 1.0f; // 쿨타임 fillAmount 초기화
-
-            _buyUI = _uiTrans.Find("BuyUI").GetComponent<BuyUI>();
         }
 
         // Update is called once per frame
@@ -82,22 +74,6 @@ namespace MyCat
         public void OnClickShopClose()
         {
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
-        }
-
-        // ShopUI에서 상품을 클릭히면 BuyUI 활성화
-        public void OnClickShopItem()
-        {
-            _uiTrans.Find("BuyUI").gameObject.SetActive(true);
-        }
-
-        public void OnClickBuyNo()
-        {
-            _uiTrans.Find("BuyUI").gameObject.SetActive(false);
-        }
-
-        public void OnClickBuyYes()
-        {
-            _buyUI.CalculateResource();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace MyCat
         Animator _anima;
         GameObject _target;
         public GameManager _gameMgr;
+        public Resource _resource;
         public Transform _worldTrans;
 
 
@@ -165,12 +166,12 @@ namespace MyCat
         {
             if(collision.gameObject.name.Contains("Coin"))
             {
-                _gameMgr.AddCoin(1);
+                _resource.CalculateCoin(1);
                 Destroy(collision.gameObject);
             }
             if (collision.gameObject.name.Contains("Heart"))
             {
-                _gameMgr.AddHeart(1);
+                _resource.CalculateHeart(1);
                 Destroy(collision.gameObject);
                 
             }
