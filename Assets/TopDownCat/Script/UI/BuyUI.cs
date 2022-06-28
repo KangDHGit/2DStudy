@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 namespace MyCat
 {
     public class BuyUI : MonoBehaviour
     {
+        public Transform _InstantiatePath;
         Resource _resource;
         public Transform _uiTrans;
         ShopItem _buyItem; // 내가 살 아이템
@@ -33,6 +35,10 @@ namespace MyCat
 
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
+
+            GameObject item = new GameObject();
+            item.transform.SetParent(_InstantiatePath);
+            _InstantiatePath.gameObject.GetComponent<TilemapRenderer>();
         }
         public void OnClickBuyNo()
         {

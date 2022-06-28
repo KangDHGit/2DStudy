@@ -571,8 +571,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &65204558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -988,8 +986,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!1 &105005936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1128,8 +1124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &127148896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1646,8 +1640,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &191071051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1976,8 +1968,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb498a6557d0364ca3586f181b8d58d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin_Txt: {fileID: 0}
-  _heart_Txt: {fileID: 0}
 --- !u!1 &208949088
 GameObject:
   m_ObjectHideFlags: 0
@@ -4354,8 +4344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &307838053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5043,7 +5031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe15e1491107e874ca303e0b4c73cef2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _uiTrans: {fileID: 0}
   _gameData: {fileID: 590095162}
   _itemList: []
 --- !u!1 &444296467
@@ -13102,8 +13089,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8148eda1e80104f40abcc5d465e58931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _InstantiatePath: {fileID: 0}
   _uiTrans: {fileID: 1585217214}
-  _itemPrice_Txt: {fileID: 0}
 --- !u!1 &899434325
 GameObject:
   m_ObjectHideFlags: 0
@@ -13490,8 +13477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &956688124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14481,8 +14466,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &1076231170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16438,6 +16421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1294202458}
   - component: {fileID: 1294202457}
+  - component: {fileID: 1294202459}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -16477,6 +16461,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1294202459
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294202456}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: d7ac9b4585e3e384cbaa740dc67cf2cc, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1314658058
 GameObject:
   m_ObjectHideFlags: 0
@@ -17582,6 +17662,7 @@ GameObject:
   - component: {fileID: 1483393269}
   - component: {fileID: 1483393272}
   - component: {fileID: 1483393274}
+  - component: {fileID: 1483393275}
   m_Layer: 6
   m_Name: BlackCat
   m_TagString: Untagged
@@ -17732,6 +17813,102 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.02}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!82 &1483393275
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483393268}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: acdecba1d705fb64d8053f7fca67ef6a, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1484804100
 GameObject:
   m_ObjectHideFlags: 0
@@ -18324,8 +18501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &1501813084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22460,8 +22635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &1752144497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22653,8 +22826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8148eda1e80104f40abcc5d465e58931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _InstantiatePath: {fileID: 2026922138}
   _uiTrans: {fileID: 1585217214}
-  _itemPrice_Txt: {fileID: 0}
 --- !u!1 &1832002019
 GameObject:
   m_ObjectHideFlags: 0
@@ -24653,8 +24826,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiTrans: {fileID: 1585217214}
   _buyUI: {fileID: 0}
-  _item_Name: {fileID: 0}
-  _price_Txt: {fileID: 0}
 --- !u!114 &2014464627
 MonoBehaviour:
   m_ObjectHideFlags: 0

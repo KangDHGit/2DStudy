@@ -6,7 +6,6 @@ namespace MyCat
 {
     public class ShopUI : MonoBehaviour
     {
-        public Transform _uiTrans;
         public GameData _gameData;
         public List<ShopItem> _itemList;
         void Start()

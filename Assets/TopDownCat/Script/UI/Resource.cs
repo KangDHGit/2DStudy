@@ -24,13 +24,14 @@ namespace MyCat
 
         public void CalculateHeart(int count)
         {
-            if (count < 0 &&_heart < Mathf.Abs(count))
+            if (count < 0 && _heart < Mathf.Abs(count))
                 _heart += count;
             _heart_Txt.text = _heart.ToString("D4");
         }
-
+        
         public void CalculateCoin(int count)
         {
+            // count가 음수이고 절대값이 소지한 coin보다 클경우 리턴
             if (count < 0 && _coin < Mathf.Abs(count))
                 return;
             _coin += count;
