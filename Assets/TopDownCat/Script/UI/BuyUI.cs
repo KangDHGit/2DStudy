@@ -13,10 +13,17 @@ namespace MyCat
         public Transform _uiTrans;
         ShopItem _buyItem; // 내가 살 아이템
 
+        // 가구배치 관련
+        Vector2 _mousePos;
+
         // Start is called before the first frame update
         void Start()
         {
             _resource = _uiTrans.Find("Resource").GetComponent<Resource>();
+        }
+        private void Update()
+        {
+            _mousePos = Input.mousePosition;
         }
 
         public void SetBuyItem(ShopItem buyitem)
@@ -36,13 +43,23 @@ namespace MyCat
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
 
-            //GameObject item = new GameObject();
-            //item.transform.SetParent(_InstantiatePath);
-            //item.AddComponent<SpriteRenderer>().sprite == _buyItem._;
+            //PlaceItem();
         }
         public void OnClickBuyNo()
         {
             this.gameObject.SetActive(false);
+        }
+        void PlaceItem()
+        {
+            GameObject item = new GameObject();
+            item.transform.SetParent(_InstantiatePath);
+            item.AddComponent<SpriteRenderer>().sprite = _buyItem._Item_Icon.sprite;
+            
+        }
+        
+        void DragItem()
+        {
+            
         }
     }
 }

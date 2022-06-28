@@ -14,6 +14,7 @@ namespace MyCat
         public GameManager _gameMgr;
         public Resource _resource;
         public Transform _worldTrans;
+        AudioSource _meowAudio;
 
 
         bool _isIdlePlay = false;   // 대기 애니매이션 랜덤재생중인가
@@ -32,6 +33,7 @@ namespace MyCat
             _rigid = GetComponent<Rigidbody2D>();
             _renderer = GetComponent<SpriteRenderer>();
             _anima = GetComponent<Animator>();
+            _meowAudio = GetComponent<AudioSource>();
 
             _emoteSweat = transform.Find("Emote_Sweat").gameObject;
             _emoteSweat.SetActive(false);
@@ -60,7 +62,10 @@ namespace MyCat
             if (random == 2)
                 _anima.SetTrigger("idle2");
             if (random == 3)
+            {
                 _anima.SetTrigger("idle3");
+                _meowAudio.Play();
+            }
             //// 삼항연산자 활용
             //string temp = (random == 2) ? "idle2" : "idle3";
             //_anima.SetTrigger("temp");
