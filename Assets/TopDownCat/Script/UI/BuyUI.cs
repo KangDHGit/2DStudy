@@ -36,9 +36,9 @@ namespace MyCat
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
 
-            GameObject item = new GameObject();
-            item.transform.SetParent(_InstantiatePath);
-            _InstantiatePath.gameObject.GetComponent<TilemapRenderer>();
+            //GameObject item = new GameObject();
+            //item.transform.SetParent(_InstantiatePath);
+            //item.AddComponent<SpriteRenderer>().sprite == _buyItem._;
         }
         public void OnClickBuyNo()
         {
