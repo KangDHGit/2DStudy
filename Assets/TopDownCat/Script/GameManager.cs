@@ -65,10 +65,15 @@ namespace MyCat
         
         public void ItemPlacement(ShopItem buyItem)
         {
-            GameObject item = Instantiate(_ItemPlacementTemplate, _worldTrans.Find("CustomRoom").transform);
-            //SpriteRenderer sprite = item.GetComponent<SpriteRenderer>();
-            //sprite.sprite = buyItem._Item_Icon.sprite;
-            //sprite.color = new Color(0, 0, 0, 150);
+            GameObject item = Instantiate(_ItemPlacementTemplate);
+            item.SetActive(true);
+            item.transform.SetParent(_worldTrans.Find("CustomRoom"));
+
+            SpriteRenderer sprite = item.GetComponent<SpriteRenderer>();
+            sprite.sprite = buyItem._Item_Icon.sprite;
+            sprite.color = new Color(1f, 1f, 1f, 0.5f);
+
+            item.name = buyItem._Item_Name.text;
         }
     }
 }

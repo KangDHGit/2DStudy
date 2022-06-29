@@ -6,28 +6,28 @@ namespace MyCat
 {
     public class ItemPlacement : MonoBehaviour
     {
-        public Transform _instantiatePath;
-        SpriteRenderer _sprite;
 
-        Vector2 _mousePos;
-
+        bool _dragActive;
         
         // Start is called before the first frame update
         void Start()
         {
-            transform.SetParent(_instantiatePath);
-            _sprite = GetComponent<SpriteRenderer>();
+            _dragActive = true;
         }
 
         // Update is called once per frame
         void Update()
         {
-            
+            DragItem(_dragActive);
         }
 
-        void MousePos()
+        void DragItem(bool value)
         {
-            
+            if (value == false)
+                return;
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 dragPos = new Vector2(mousePos.x / 320, mousePos.y / 180);
+            transform.position = dragPos;
         }
     }
 }

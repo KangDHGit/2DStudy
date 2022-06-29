@@ -38,12 +38,11 @@ namespace MyCat
             int.TryParse(_buyItem.PriceDeleteComma(), out int price);
             _resource.CalculateCoin(-price);
 
-            _buyItem = null;
-
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
 
             _GameMgr.GetComponent<GameManager>().ItemPlacement(_buyItem);
+            _buyItem = null;
         }
         public void OnClickBuyNo()
         {
