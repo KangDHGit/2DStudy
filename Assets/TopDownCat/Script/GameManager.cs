@@ -16,6 +16,8 @@ namespace MyCat
         GameObject _blackCat;
 
         public GameObject _heartTemplate;
+        public GameObject _ItemPlacementTemplate;
+        
         public Canvas _canvasObj;
         
         // Start is called before the first frame update
@@ -59,6 +61,14 @@ namespace MyCat
             itemobj.transform.position = _blackCat.transform.position
                                            + new Vector3(randomPos.x, randomPos.y);
             itemobj.SetActive(true);
+        }
+        
+        public void ItemPlacement(ShopItem buyItem)
+        {
+            GameObject item = Instantiate(_ItemPlacementTemplate, _worldTrans.Find("CustomRoom").transform);
+            //SpriteRenderer sprite = item.GetComponent<SpriteRenderer>();
+            //sprite.sprite = buyItem._Item_Icon.sprite;
+            //sprite.color = new Color(0, 0, 0, 150);
         }
     }
 }

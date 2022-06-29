@@ -8,9 +8,9 @@ namespace MyCat
 {
     public class BuyUI : MonoBehaviour
     {
-        public Transform _InstantiatePath;
         Resource _resource;
         public Transform _uiTrans;
+        public Transform _GameMgr;
         ShopItem _buyItem; // 내가 살 아이템
 
         // 가구배치 관련
@@ -43,23 +43,11 @@ namespace MyCat
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
 
-            //PlaceItem();
+            _GameMgr.GetComponent<GameManager>().ItemPlacement(_buyItem);
         }
         public void OnClickBuyNo()
         {
             this.gameObject.SetActive(false);
-        }
-        void PlaceItem()
-        {
-            GameObject item = new GameObject();
-            item.transform.SetParent(_InstantiatePath);
-            item.AddComponent<SpriteRenderer>().sprite = _buyItem._Item_Icon.sprite;
-            
-        }
-        
-        void DragItem()
-        {
-            
         }
     }
 }

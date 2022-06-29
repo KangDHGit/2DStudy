@@ -25,6 +25,8 @@ namespace MyCat
 
                 //_itemList[i].SetData(missionDataList[i]);
             }
+
+
         }
 
         // Update is called once per frame
