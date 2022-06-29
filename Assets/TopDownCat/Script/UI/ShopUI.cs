@@ -7,12 +7,12 @@ namespace MyCat
     public class ShopUI : MonoBehaviour
     {
         public GameData _gameData;
-        public List<ShopItem> _itemList;
+        public List<ShopItem> _itemList; // 상점 아이템들의 컴포넌트 리스트
         void Start()
         {
-            ShopItem[] array = GetComponentsInChildren<ShopItem>();
-            _itemList.AddRange(array);
-            //_itemList.AddRange(GetComponentsInChildren<ShopItem>()); // 수정할 자식 상점아이템들
+            //ShopItem[] array = GetComponentsInChildren<ShopItem>();
+            //_itemList.AddRange(array);
+            _itemList.AddRange(GetComponentsInChildren<ShopItem>());
 
             List<GameData_ShopItem> shopItemList = _gameData._shopItem_data; // csv파일을 옮긴데이터
             for (int i = 0; i < _itemList.Count; i++)
