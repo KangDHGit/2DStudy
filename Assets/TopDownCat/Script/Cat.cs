@@ -267,14 +267,5 @@ namespace MyCat
             }
             Invoke("MakeRandomMoveObj", 5.0f);
         }
-
-        public void MoveRandomPos()
-        {
-
-            //Vector3 movePos = transform.position + randomPos;
-            //Vector3.MoveTowards(transform.position, movePos, 0.5f);
-            //Vector3 direction = (movePos - transform.position).normalized;
-            //MoveAnima(direction.x, direction.y);
-        }
     }
 }
