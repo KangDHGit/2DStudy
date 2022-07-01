@@ -62,7 +62,7 @@ namespace MyCat
         public void PlacementYes()
         {
             _dragActive = false;
-            _uiTrans.Find("PlacementUI").gameObject.SetActive(false);
+            _placementUI.SetActive(false);
             _sprite.color = new Color(1f, 1f, 1f, 1f);
             this.enabled = false;
         }

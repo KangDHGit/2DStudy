@@ -36,7 +36,9 @@ namespace MyCat
                 return;
             // 구매 아이템 가격(string)의 "," 제거 한 string을 int로 변환
             int.TryParse(_buyItem.PriceDeleteComma(), out int price);
-            _resource.CalculateCoin(-price);
+
+            if (!_resource.CalculateCoin(-price))
+                return;
 
             this.gameObject.SetActive(false);
             _uiTrans.Find("ShopUI").gameObject.SetActive(false);
