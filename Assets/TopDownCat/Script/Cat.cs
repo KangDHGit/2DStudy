@@ -171,7 +171,11 @@ namespace MyCat
         {
             if(collision.gameObject.name.Contains("Coin"))
             {
-                _resource.CalculateCoin(1);
+                if(collision.gameObject.name.Contains("1000"))
+                    _resource.CalculateCoin(1000);
+                else
+                    _resource.CalculateCoin(1);
+
                 Destroy(collision.gameObject);
             }
             if (collision.gameObject.name.Contains("Heart"))

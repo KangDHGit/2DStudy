@@ -16,6 +16,7 @@ namespace MyCat
 
         public Image _Item_Icon { get { return _item_Icon; } }
         public Text _Item_Name { get { return _item_Name; } }
+        public Text _Price_Txt { get { return _price_Txt; } }
 
 
         // Start is called before the first frame update

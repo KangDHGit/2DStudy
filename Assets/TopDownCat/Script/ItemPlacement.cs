@@ -23,6 +23,9 @@ namespace MyCat
             _placementUI = _uiTrans.Find("PlacementUI").gameObject;
             _placementBtn = _placementUI.transform.Find("PlacementBtn").GetComponent<Button>();
             _cancelBtn = _placementUI.transform.Find("CancelBtn").GetComponent<Button>();
+
+            //if(gameObject.GetComponent<BoxCollider2D>() != null)
+            //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
         }
 
         // Update is called once per frame
@@ -64,6 +67,12 @@ namespace MyCat
             _dragActive = false;
             _placementUI.SetActive(false);
             _sprite.color = new Color(1f, 1f, 1f, 1f);
+            if (gameObject.GetComponent<BoxCollider2D>() == null)
+                gameObject.AddComponent<BoxCollider2D>();
+            else
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+
+
             this.enabled = false;
         }
         // 취소 눌렀을때

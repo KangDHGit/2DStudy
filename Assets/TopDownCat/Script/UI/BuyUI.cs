@@ -11,15 +11,25 @@ namespace MyCat
         Resource _resource;
         public Transform _uiTrans;
         public Transform _GameMgr;
+
+        public Text _itemNameTxt;
+        public Text _itemPriceTxt;
+
         ShopItem _buyItem; // 내가 살 아이템
 
         // 가구배치 관련
         Vector2 _mousePos;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
+        {
+            Init();
+        }
+        void Init()
         {
             _resource = _uiTrans.Find("Resource").GetComponent<Resource>();
+            _itemNameTxt = transform.Find("BuyScreen").Find("ItemInfo").Find("ItemName_Txt").GetComponent<Text>();
+            _itemPriceTxt = transform.Find("BuyScreen").Find("ItemInfo").Find("Price_Txt").GetComponent<Text>();
         }
         private void Update()
         {
@@ -28,7 +38,11 @@ namespace MyCat
 
         public void SetBuyItem(ShopItem buyitem)
         {
+            Init();
+
             _buyItem = buyitem;
+            _itemNameTxt.text = _buyItem._Item_Name.text;
+            _itemPriceTxt.text = _buyItem._Price_Txt.text;
         }
         public void OnClickBuyYes()
         {
