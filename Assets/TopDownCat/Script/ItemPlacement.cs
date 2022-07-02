@@ -10,10 +10,13 @@ namespace MyCat
         bool _dragActive;
         public RectTransform _uiTrans;
         SpriteRenderer _sprite;
+        BoxCollider2D _collider;
 
         GameObject _placementUI; // 배치UI(배치, 취소)
         Button _placementBtn;
         Button _cancelBtn;
+
+        bool _crashCheck;
 
         // Start is called before the first frame update
         void Start()
@@ -24,8 +27,12 @@ namespace MyCat
             _placementBtn = _placementUI.transform.Find("PlacementBtn").GetComponent<Button>();
             _cancelBtn = _placementUI.transform.Find("CancelBtn").GetComponent<Button>();
 
-            //if(gameObject.GetComponent<BoxCollider2D>() != null)
-            //    gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            if (_collider == null)
+                _collider = gameObject.AddComponent<BoxCollider2D>();
+            else
+                _collider = GetComponent<BoxCollider2D>();
+
+            _collider.isTrigger = true;
         }
 
         // Update is called once per frame
@@ -53,6 +60,8 @@ namespace MyCat
 
             if (Input.GetMouseButtonDown(0))
             {
+                if (_crashCheck == false)
+                    return;
                 _dragActive = false;
                 _placementUI.SetActive(true);
                 _placementBtn.onClick.AddListener(PlacementYes);
@@ -64,15 +73,12 @@ namespace MyCat
         // 배치 눌렀을때
         public void PlacementYes()
         {
+            if (_crashCheck == false)
+                return;
             _dragActive = false;
             _placementUI.SetActive(false);
             _sprite.color = new Color(1f, 1f, 1f, 1f);
-            if (gameObject.GetComponent<BoxCollider2D>() == null)
-                gameObject.AddComponent<BoxCollider2D>();
-            else
-                gameObject.GetComponent<BoxCollider2D>().enabled = true;
-
-
+            _collider.isTrigger = false;
             this.enabled = false;
         }
         // 취소 눌렀을때
@@ -80,6 +86,21 @@ namespace MyCat
         {
             Destroy(gameObject);
             _placementUI.SetActive(false);
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            _crashCheck = false;
+            Debug.Log("Crash Check " + _crashCheck + this.name);
+            // 반투명 빨강색으로 만들기
+            _sprite.color = new Color(1f, 0f, 0f, 0.5f);
+        }
+
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            _crashCheck = true;
+            Debug.Log("Crash Check" + _crashCheck);
+            // 다시 반투명 색으로
+            _sprite.color = new Color(1f, 1f, 1f, 0.5f);
         }
     }
 }
