@@ -11,6 +11,7 @@ namespace MyCat
         public RectTransform _uiTrans;
         SpriteRenderer _sprite;
         BoxCollider2D _collider;
+        Rigidbody2D _rigid;
 
         GameObject _placementUI; // 배치UI(배치, 취소)
         Button _placementBtn;
@@ -30,9 +31,12 @@ namespace MyCat
             if (_collider == null)
                 _collider = gameObject.AddComponent<BoxCollider2D>();
             else
-                _collider = GetComponent<BoxCollider2D>();
+                _collider = gameObject.GetComponent<BoxCollider2D>();
+
+            _rigid = gameObject.GetComponent<Rigidbody2D>();
 
             _collider.isTrigger = true;
+            _rigid.bodyType = RigidbodyType2D.Dynamic;
         }
 
         // Update is called once per frame
@@ -45,6 +49,8 @@ namespace MyCat
         {
             if (Input.GetMouseButtonDown(1))
             {
+                if (_crashCheck == false)
+                    return;
                 _dragActive = true;
                 _placementUI.SetActive(false);
                 _sprite.color = new Color(1f, 1f, 1f, 0.5f);
@@ -75,11 +81,13 @@ namespace MyCat
         {
             if (_crashCheck == false)
                 return;
+
             _dragActive = false;
             _placementUI.SetActive(false);
             _sprite.color = new Color(1f, 1f, 1f, 1f);
             _collider.isTrigger = false;
             this.enabled = false;
+            _rigid.bodyType = RigidbodyType2D.Static;
         }
         // 취소 눌렀을때
         public void PlacementNo()
@@ -87,18 +95,26 @@ namespace MyCat
             Destroy(gameObject);
             _placementUI.SetActive(false);
         }
+
+
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (!isActiveAndEnabled)
+                return;
+
             _crashCheck = false;
-            Debug.Log("Crash Check " + _crashCheck + this.name);
+            Debug.Log("Crash Check " + _crashCheck +  " " + this.name);
             // 반투명 빨강색으로 만들기
             _sprite.color = new Color(1f, 0f, 0f, 0.5f);
         }
 
         private void OnTriggerExit2D(Collider2D collision)
         {
+            if (!isActiveAndEnabled)
+                return;
+
             _crashCheck = true;
-            Debug.Log("Crash Check" + _crashCheck);
+            Debug.Log("Crash Check " + _crashCheck + " " + this.name);
             // 다시 반투명 색으로
             _sprite.color = new Color(1f, 1f, 1f, 0.5f);
         }
