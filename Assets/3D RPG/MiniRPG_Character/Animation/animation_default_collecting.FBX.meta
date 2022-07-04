@@ -1,0 +1,156 @@
+fileFormatVersion: 2
+guid: 297b1cc6281df9540be35ba8d886ba1c
+timeCreated: 1561481868
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: arm_L_down
+    100004: arm_L_up
+    100006: arm_L_weapon
+    100008: arm_R_down
+    100010: arm_R_up
+    100012: arm_R_weapon
+    100014: center
+    100016: head
+    100018: Leg_L_down
+    100020: leg_L_up
+    100022: Leg_R_down
+    100024: leg_R_up
+    100026: spine01
+    400000: //RootNode
+    400002: arm_L_down
+    400004: arm_L_up
+    400006: arm_L_weapon
+    400008: arm_R_down
+    400010: arm_R_up
+    400012: arm_R_weapon
+    400014: center
+    400016: head
+    400018: Leg_L_down
+    400020: leg_L_up
+    400022: Leg_R_down
+    400024: leg_R_up
+    400026: spine01
+    7400000: Take 001
+    7400002: default_ani_collecting
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: default_ani_collecting
+      takeName: default_ani_collecting
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: arm_L_weapon
+        weight: 1
+      - path: arm_R_weapon
+        weight: 1
+      - path: center
+        weight: 1
+      - path: center/leg_L_up
+        weight: 1
+      - path: center/leg_L_up/Leg_L_down
+        weight: 1
+      - path: center/leg_R_up
+        weight: 1
+      - path: center/leg_R_up/Leg_R_down
+        weight: 1
+      - path: center/spine01
+        weight: 1
+      - path: center/spine01/arm_L_up
+        weight: 1
+      - path: center/spine01/arm_L_up/arm_L_down
+        weight: 1
+      - path: center/spine01/arm_R_up
+        weight: 1
+      - path: center/spine01/arm_R_up/arm_R_down
+        weight: 1
+      - path: center/spine01/head
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

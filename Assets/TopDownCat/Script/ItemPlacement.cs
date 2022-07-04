@@ -28,10 +28,8 @@ namespace MyCat
             _placementBtn = _placementUI.transform.Find("PlacementBtn").GetComponent<Button>();
             _cancelBtn = _placementUI.transform.Find("CancelBtn").GetComponent<Button>();
 
-            if (_collider == null)
+            if ((_collider = gameObject.GetComponent<BoxCollider2D>()) == null)
                 _collider = gameObject.AddComponent<BoxCollider2D>();
-            else
-                _collider = gameObject.GetComponent<BoxCollider2D>();
 
             _rigid = gameObject.GetComponent<Rigidbody2D>();
 
