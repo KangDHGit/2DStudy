@@ -57,8 +57,9 @@ namespace MyCat
             if (value == false)
                 return;
 
-            Vector2 mousePos = Input.mousePosition;
-            Vector2 dragPos = Camera.main.ScreenToWorldPoint(mousePos);
+            Vector2 mousePos = Input.mousePosition; // RectTrans
+            Vector2 dragPos = Camera.main.ScreenToWorldPoint(mousePos); //월드좌표로 변환
+
             transform.position = dragPos;
             _placementUI.transform.position = mousePos;
 
