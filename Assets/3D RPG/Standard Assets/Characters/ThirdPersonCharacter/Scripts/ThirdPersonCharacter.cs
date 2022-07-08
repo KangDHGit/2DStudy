@@ -194,14 +194,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (/*m_IsGrounded && */Time.deltaTime > 0)
             {
-                //Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
-                Vector3 v = (m_UserControl.Move * m_MoveSpeedMultiplier) / Time.deltaTime;
+				//Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+				Vector3 v = (m_UserControl.Move * m_MoveSpeedMultiplier) / Time.fixedDeltaTime;
 
                 // we preserve the existing y part of the current velocity.
                 v.y = m_Rigidbody.velocity.y;
                 m_Rigidbody.velocity = v;
 				m_Animator.SetFloat("velocity", v.magnitude);
 			}
+
         }
         void CheckGroundStatus()
 		{
@@ -225,5 +226,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
+
+		public void Attack(bool leftClick)
+        {
+			if(leftClick)
+				m_Animator.SetTrigger("attack");
+        }
+
+		
 	}
 }
