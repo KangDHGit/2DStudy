@@ -226,13 +226,5 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				m_Animator.applyRootMotion = false;
 			}
 		}
-
-		public void Attack(bool leftClick)
-        {
-			if(leftClick)
-				m_Animator.SetTrigger("attack");
-        }
-
-		
 	}
 }

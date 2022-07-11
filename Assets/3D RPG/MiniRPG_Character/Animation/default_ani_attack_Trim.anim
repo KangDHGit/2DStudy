@@ -11186,7 +11186,14 @@ AnimationClip:
     floatParameter: 0
     intParameter: 1
     messageOptions: 0
-  - time: 0.6
+  - time: 0.36666667
+    functionName: AnimSound
+    data: attack
+    objectReferenceParameter: {fileID: 11500000, guid: 851c7878bb3ef82469bfac931a92446b, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: SetAttackCol
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: b293bc2d513c3ba4e98d696783306ecd, type: 3}

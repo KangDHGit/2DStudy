@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using MyRPG;
 using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets.Characters.ThirdPerson
@@ -14,6 +15,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         public Vector3 Move { get { return m_Move; } } 
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
         public bool m_LeftClick;
+
+        Unit _player;
 
         private void Start()
         {
@@ -44,7 +47,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
 
-            m_LeftClick = CrossPlatformInputManager.GetButtonDown("Fire1");
+            //m_LeftClick = CrossPlatformInputManager.GetButtonDown("Fire1");
         }
 
 
@@ -55,6 +58,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             float h = CrossPlatformInputManager.GetAxis("Horizontal");
             float v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
+            //m_LeftClick = CrossPlatformInputManager.GetButtonDown("Fire1");
 
             // calculate move direction to pass to character
             if (m_Cam != null)
@@ -76,7 +80,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             // pass all parameters to the character control script
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
-            m_Character.Attack(m_LeftClick);
         }
 
     }
