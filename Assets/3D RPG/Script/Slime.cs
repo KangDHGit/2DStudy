@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MyRPG
 {
@@ -9,9 +10,16 @@ namespace MyRPG
         public float _attackRange;
         public GameObject _enemyObj;
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             CheckDistance();
+        }
+
+        protected override void Init()
+        {
+            base.Init();
+            _attackCol = transform.Find("Body").GetComponent<BoxCollider>();
         }
 
         void CheckDistance()    // 
