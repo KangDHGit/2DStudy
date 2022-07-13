@@ -9,15 +9,16 @@ namespace MyRPG
     {
         public int _maxHp = 100;
         public int _hp = 0;
-        public float _diedelay;
+        public float _dieDelay;
+        public float _reBirthDelay;
 
         protected BoxCollider _attackCol;
         public Animator _anim;
 
         public Transform _uiTrans;
-        protected Slider _hpSlider;
-        protected Slider _hpDarkSlider;
-        protected Slider _mpSlider;
+        protected Image _ImgHpBar;
+        protected Image _ImgDarkHpBar;
+        protected Image _ImgMpBar;
 
         Vector3 _rebirthPos;
         // 공격 효과음
@@ -63,8 +64,8 @@ namespace MyRPG
                 Debug.Log("===== 데미지 종료! =====");
 
                 _hp -= 10;
-                if (_hpSlider != null)
-                    _hpSlider.value = _hp / (float)_maxHp;
+                if (_ImgHpBar != null)
+                    _ImgHpBar.fillAmount = _hp / (float)_maxHp;
 
                 if (_anim != null)
                     _anim.SetTrigger("hit");
@@ -72,8 +73,8 @@ namespace MyRPG
                 if (_hp <= 0)
                 {
                     _anim.SetTrigger("die");
-                    Invoke("ActiveFalse", _diedelay);
-                    Invoke("ReBirth", 1.0f);
+                    Invoke("ActiveFalse", _dieDelay);
+                    Invoke("ReBirth", _reBirthDelay);
                 }
             }
         }
@@ -124,11 +125,11 @@ namespace MyRPG
 
         public void HpDarkBarDown()
         {
-            if(_hpDarkSlider != null)
+            if(_ImgDarkHpBar != null)
             {
-                if(_hpDarkSlider.value >= _hpSlider.value)
+                if(_ImgDarkHpBar.fillAmount >= _ImgHpBar.fillAmount)
                 {
-                    _hpDarkSlider.value -= (0.1f * Time.deltaTime);
+                    _ImgDarkHpBar.fillAmount -= (0.1f * Time.deltaTime);
                 }
             }
         }

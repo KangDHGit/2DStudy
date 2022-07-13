@@ -6,32 +6,23 @@ using UnityEngine.UI;
 
 namespace MyRPG
 {
-    public class Knight : Unit
+    public class Knight : Player
     {
-        bool m_LeftClick;
-
-        protected override void Update()
-        {
-            base.Update();
-            m_LeftClick = CrossPlatformInputManager.GetButtonDown("Fire1");
-            Attack(m_LeftClick);
-        }
-
         protected override void Init()
         {
             base.Init();
             _attackCol = transform.Find("arm_R_weapon/Knight_handsword").GetComponent<BoxCollider>();
             if (_attackCol != null)
                 _attackCol.enabled = false;
-            _hpSlider = _uiTrans.Find("UI_Main/Slider_HP").GetComponent<Slider>();
-            if (_hpSlider != null)
-                _hpSlider.value = 1;
-            _hpDarkSlider = _uiTrans.Find("UI_Main/Slider_HP/Slider_HP_Dark").GetComponent<Slider>();
-            if (_hpDarkSlider != null)
-                _hpDarkSlider.value = 1;
-            _mpSlider = _uiTrans.Find("UI_Main/Slider_MP").GetComponent<Slider>();
-            if (_mpSlider != null)
-                _mpSlider.value = 1;
+            _ImgHpBar = _uiTrans.Find("UI_Main/HPBar/Img_Fil").GetComponent<Image>();
+            if (_ImgHpBar != null)
+                _ImgHpBar.fillAmount = 1;
+            _ImgDarkHpBar = _uiTrans.Find("UI_Main/HPBar/Img_FilDark").GetComponent<Image>();
+            if (_ImgDarkHpBar != null)
+                _ImgDarkHpBar.fillAmount = 1;
+            _ImgMpBar = _uiTrans.Find("UI_Main/MPBar/Img_Fill").GetComponent<Image>();
+            if (_ImgMpBar != null)
+                _ImgMpBar.fillAmount = 1;
         }
     }
 }
