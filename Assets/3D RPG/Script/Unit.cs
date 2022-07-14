@@ -13,6 +13,7 @@ namespace MyRPG
         public float _reBirthDelay;
 
         protected BoxCollider _attackCol;
+        protected Rigidbody _rigidbody;
         public Animator _anim;
 
         public Transform _uiTrans;
@@ -22,7 +23,7 @@ namespace MyRPG
 
         Vector3 _rebirthPos;
         // 공격 효과음
-        AudioSource _sound_Attack;
+        public AudioSource _sound_Attack;
 
         // Start is called before the first frame update
         protected virtual void Start()
@@ -40,6 +41,7 @@ namespace MyRPG
         {
             _anim = GetComponent<Animator>();
             _sound_Attack = GetComponent<AudioSource>();
+            _rigidbody = GetComponent<Rigidbody>();
 
             // 체력 초기화
             _hp = _maxHp;
@@ -120,6 +122,22 @@ namespace MyRPG
                 _attackCol.enabled = true;
             else if (num == 0)
                 _attackCol.enabled = false;
+        }
+
+        public void SetisAttack(int num)
+        {
+            if (num == 1)
+                _anim.SetBool("isattack", true);
+            else if (num == 0)
+                _anim.SetBool("isattack", false);
+        }
+
+        public void SetisJump(int num)
+        {
+            if (num == 1)
+                _anim.SetBool("isjump", true);
+            else if (num == 0)
+                _anim.SetBool("isjump", false);
         }
         #endregion
 

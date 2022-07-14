@@ -48,7 +48,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{
-
 			// convert the world relative moveInput vector into a local-relative
 			// turn amount and forward amount required to head in the desired
 			// direction.
@@ -186,7 +185,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			transform.Rotate(0, m_TurnAmount * turnSpeed * Time.deltaTime, 0);
 		}
 
-
+		// 움직임 관련=========================================
 		public void OnAnimatorMove()
 		{
             // we implement this function to override the default root motion.
@@ -194,6 +193,8 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
             if (/*m_IsGrounded && */Time.deltaTime > 0)
             {
+				if (m_Animator.GetBool("isattack"))
+					return;
 				//Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 				Vector3 v = (m_UserControl.Move * m_MoveSpeedMultiplier) / Time.fixedDeltaTime;
 
