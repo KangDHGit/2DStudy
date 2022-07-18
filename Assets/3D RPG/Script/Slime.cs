@@ -9,16 +9,22 @@ namespace MyRPG
     {
         public float _attackRange;
         public GameObject _enemyObj;
+        public GameObject _objHpBarTemp;
+        public GameObject _objHpBar;
+        public Vector3 _hpBarOffset;
+        public Camera _camera;
 
         protected override void Update()
         {
             base.Update();
             CheckDistance();
+            //UpdateHpBarPos();
         }
 
         protected override void Init()
         {
             base.Init();
+            //InitHpBar();
             _attackCol = transform.Find("Body").GetComponent<BoxCollider>();
         }
 
@@ -40,6 +46,28 @@ namespace MyRPG
             else
             {
                 _anim.SetBool("attack", false); // ���ݹ����� ����ų� ü���� 0 �̸�
+            }
+        }
+
+        private void InitHpBar()
+        {
+            _objHpBar = Instantiate(_objHpBarTemp);
+            _objHpBar.SetActive(false);
+            _ImgHpBar = _objHpBar.GetComponent<Image>();
+        }
+
+        private void UpdateHpBarPos()
+        {
+            Vector3 unitPos = transform.position;
+            if (_camera != null)
+            {
+                Vector3 screenPos = _camera.WorldToScreenPoint(unitPos);
+                if (_objHpBar != null)
+                {
+                    RectTransform barTrans = _objHpBar.GetComponent<RectTransform>();
+                    //barTrans.position = screenPos;
+                    barTrans.anchoredPosition = screenPos;
+                }
             }
         }
     }

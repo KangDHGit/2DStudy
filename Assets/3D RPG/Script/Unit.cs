@@ -46,7 +46,7 @@ namespace MyRPG
             // 체력 초기화
             _hp = _maxHp;
         }
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.name == "Post-process Volume")
                 return; // 포스트 프로세스 스킵
@@ -67,7 +67,11 @@ namespace MyRPG
 
                 _hp -= 10;
                 if (_ImgHpBar != null)
+                {
+                    if (!_ImgHpBar.gameObject.activeSelf)
+                        _ImgHpBar.gameObject.SetActive(true);
                     _ImgHpBar.fillAmount = _hp / (float)_maxHp;
+                }
 
                 if (_anim != null)
                     _anim.SetTrigger("hit");
