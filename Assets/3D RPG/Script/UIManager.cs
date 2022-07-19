@@ -54,10 +54,10 @@ namespace MyRPG
 
         public void OnButtonStatPoints(GameObject buttonobj)
         {
-            Debug.Log("-------Stat--------");
-            Debug.Log(buttonobj.transform.parent.name);
-            Debug.Log(buttonobj.name);
-            Debug.Log("-------------------");
+            //Debug.Log("-------Stat--------");
+            //Debug.Log(buttonobj.transform.parent.name);
+            //Debug.Log(buttonobj.name);
+            //Debug.Log("-------------------");
         }
     }
 }
