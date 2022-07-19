@@ -50,7 +50,14 @@ namespace MyRPG
                 else if (_uI_Pased.activeSelf == false)
                     _uI_Pased.SetActive(true);
             }
+        }
 
+        public void OnButtonStatPoints(GameObject buttonobj)
+        {
+            Debug.Log("-------Stat--------");
+            Debug.Log(buttonobj.transform.parent.name);
+            Debug.Log(buttonobj.name);
+            Debug.Log("-------------------");
         }
     }
 }
