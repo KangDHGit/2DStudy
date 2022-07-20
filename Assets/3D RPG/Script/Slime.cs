@@ -9,8 +9,9 @@ namespace MyRPG
     {
         public float _attackRange;
         public GameObject _enemyObj;
-        public GameObject _objHpBarTemp;
-        public GameObject _objHpBar;
+        public GameObject _monUITemp;
+        public GameObject _monUIClone;
+
         public Vector3 _hpBarOffset;
         public Camera _camera;
 
@@ -18,13 +19,13 @@ namespace MyRPG
         {
             base.Update();
             CheckDistance();
-            //UpdateHpBarPos();
+            UpdateHpBarPos();
         }
 
         protected override void Init()
         {
             base.Init();
-            //InitHpBar();
+            InitHpBar();
             _attackCol = transform.Find("Body").GetComponent<BoxCollider>();
         }
 
@@ -51,9 +52,13 @@ namespace MyRPG
 
         private void InitHpBar()
         {
-            _objHpBar = Instantiate(_objHpBarTemp);
-            _objHpBar.SetActive(false);
-            _ImgHpBar = _objHpBar.GetComponent<Image>();
+            if (_monUITemp != null)
+            {
+                _monUIClone = Instantiate(_monUITemp);
+                _monUIClone.transform.parent = _uiTrans;
+                _monUIClone.SetActive(true);
+                _ImgHpBar = _monUIClone.transform.Find("Img_Fil_Temp").GetComponent<Image>();
+            }
         }
 
         private void UpdateHpBarPos()
@@ -62,12 +67,7 @@ namespace MyRPG
             if (_camera != null)
             {
                 Vector3 screenPos = _camera.WorldToScreenPoint(unitPos);
-                if (_objHpBar != null)
-                {
-                    RectTransform barTrans = _objHpBar.GetComponent<RectTransform>();
-                    //barTrans.position = screenPos;
-                    barTrans.anchoredPosition = screenPos;
-                }
+                _monUIClone.transform.position = screenPos;
             }
         }
     }

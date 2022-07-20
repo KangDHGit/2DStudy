@@ -16,7 +16,7 @@ namespace MyRPG
         protected Rigidbody _rigidbody;
         public Animator _anim;
 
-        public Transform _uiTrans;
+        public RectTransform _uiTrans;
         protected Image _ImgHpBar;
         protected Image _ImgDarkHpBar;
         protected Image _ImgMpBar;
@@ -45,6 +45,7 @@ namespace MyRPG
 
             // 체력 초기화
             _hp = _maxHp;
+            
         }
         protected virtual void OnTriggerEnter(Collider other)
         {
@@ -65,23 +66,28 @@ namespace MyRPG
 
                 Debug.Log("===== 데미지 종료! =====");
 
-                _hp -= 10;
+                ProcessHit(10);
                 if (_ImgHpBar != null)
                 {
                     if (!_ImgHpBar.gameObject.activeSelf)
                         _ImgHpBar.gameObject.SetActive(true);
                     _ImgHpBar.fillAmount = _hp / (float)_maxHp;
                 }
+            }
+        }
 
-                if (_anim != null)
-                    _anim.SetTrigger("hit");
+        protected virtual void ProcessHit(int damage)
+        {
+            _hp -= damage;
 
-                if (_hp <= 0)
-                {
-                    _anim.SetTrigger("die");
-                    Invoke("ActiveFalse", _dieDelay);
-                    Invoke("ReBirth", _reBirthDelay);
-                }
+            if (_anim != null)
+                _anim.SetTrigger("hit");
+
+            if (_hp <= 0)
+            {
+                _anim.SetTrigger("die");
+                Invoke("ActiveFalse", _dieDelay);
+                Invoke("ReBirth", _reBirthDelay);
             }
         }
 

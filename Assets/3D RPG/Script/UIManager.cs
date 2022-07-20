@@ -37,6 +37,7 @@ namespace MyRPG
                     _uI_Stat.SetActive(false);
                 else if (_uI_Stat.activeSelf == false)
                     _uI_Stat.SetActive(true);
+                _uI_Stat.GetComponent<UI_Stat>().InitTxt();
             }
         }
         
@@ -52,12 +53,8 @@ namespace MyRPG
             }
         }
 
-        public void OnButtonStatPoints(GameObject buttonobj)
-        {
-            //Debug.Log("-------Stat--------");
-            //Debug.Log(buttonobj.transform.parent.name);
-            //Debug.Log(buttonobj.name);
-            //Debug.Log("-------------------");
+        void RefreshHpBar()
+        { 
         }
     }
 }
