@@ -66,7 +66,7 @@ namespace MyRPG
 
         void GetPPrefsStat()
         {
-            if (PlayerPrefs.HasKey("STAT_STR")) // 이미 스탯 랜덤 결정을 한 적이 있음
+            if (PlayerPrefs.HasKey("STAT_POINT")) // 이미 스탯 랜덤 결정을 한 적이 있음
             {
                 _stat._str = PlayerPrefs.GetInt("STAT_STR");
                 _stat._dex = PlayerPrefs.GetInt("STAT_DEX");
