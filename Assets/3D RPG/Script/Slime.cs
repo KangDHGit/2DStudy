@@ -26,7 +26,7 @@ namespace MyRPG
         {
             base.Init();
             InitHpBar();
-            _attackCol = transform.Find("Body").GetComponent<BoxCollider>();
+            _attackCol = transform.Find("Body/AttackCol").GetComponent<BoxCollider>();
         }
 
         void CheckDistance()    // 

@@ -14,19 +14,37 @@ namespace MyRPG
         Text _txtLukPoint;
         Text _txtIntPoint;
         Text _txtstatPoint;
+
+        public Text _txtLevel;
+        public Text _curExp;
+        public Text _reqExp;
+        public Image _expBar;
         
         void Update()
         {
             UpdateStats();
         }
 
-        public void InitTxt()
+        public void InitStatTxt()
         {
             _txtStrPoint = transform.Find("Stat/Str/Txt_StatPoint").GetComponent<Text>();
             _txtDexPoint = transform.Find("Stat/Dex/Txt_StatPoint").GetComponent<Text>();
             _txtLukPoint = transform.Find("Stat/Luk/Txt_StatPoint").GetComponent<Text>();
             _txtIntPoint = transform.Find("Stat/Int/Txt_StatPoint").GetComponent<Text>();
             _txtstatPoint = transform.Find("Stat/StatPoint/Txt_Point").GetComponent<Text>();
+        }
+
+        public void InitLv_Exp()
+        {
+            _txtLevel = transform.Find("Lv_Exp/Txt_LvNum").GetComponent<Text>();
+            _curExp = transform.Find("Lv_Exp/Txt_CurExp").GetComponent<Text>();
+            _reqExp = transform.Find("Lv_Exp/Txt_ReqExp").GetComponent<Text>();
+            _expBar = transform.Find("Lv_Exp/Img_ExpBar").GetComponent<Image>();
+
+            _txtLevel.text = _player._level.ToString();
+            _curExp.text = _player._exp.ToString();
+            _reqExp.text = _player._requiredExp.ToString();
+            _expBar.fillAmount = ((float)_player._exp / _player._requiredExp);
         }
 
         void UpdateStats()

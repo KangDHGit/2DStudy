@@ -19,6 +19,8 @@ namespace MyRPG
         {
             _uI_Stat = transform.Find("UI_Stat").gameObject;
             _uI_Pased = transform.Find("UI_Pased").gameObject;
+            _uI_Stat.GetComponent<UI_Stat>().InitStatTxt();
+            _uI_Stat.GetComponent<UI_Stat>().InitLv_Exp();
         }
 
         // Update is called once per frame
@@ -37,7 +39,8 @@ namespace MyRPG
                     _uI_Stat.SetActive(false);
                 else if (_uI_Stat.activeSelf == false)
                     _uI_Stat.SetActive(true);
-                _uI_Stat.GetComponent<UI_Stat>().InitTxt();
+                _uI_Stat.GetComponent<UI_Stat>().InitStatTxt();
+                _uI_Stat.GetComponent<UI_Stat>().InitLv_Exp();
             }
         }
         

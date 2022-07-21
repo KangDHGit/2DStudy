@@ -523,7 +523,7 @@ TextureImporter:
         width: 44
         height: 66
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -531,6 +531,27 @@ TextureImporter:
       bones: []
       spriteID: 21df4d4e406562044bb1b81c8414819a
       internalID: -1512428942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: miniBack
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 172
+        width: 16
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e51c0cbb8f6b7469d025c8455218bd
+      internalID: -1403838154
       vertices: []
       indices: 
       edges: []
@@ -549,6 +570,7 @@ TextureImporter:
       GUI_4: -1553674166
       GUI_5: -1330911077
       GUI_0: 522480868
+      miniBack: -1403838154
       GUI_3: 1226957842
       GUI_2: -12791646
       Bar_Back: 62051580

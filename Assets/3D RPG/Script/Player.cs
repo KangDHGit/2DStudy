@@ -90,9 +90,15 @@ namespace MyRPG
             }
         }
 
-        protected override void ProcessHit(int damage)
+        public void AddExp(int exp)
         {
-            base.ProcessHit(damage);
+            _exp += exp;
+            _uiTrans.Find("UI_Stat").GetComponent<UI_Stat>().InitLv_Exp();
+        }
+
+        protected override void ProcessHit(int damage, Unit attacker)
+        {
+            base.ProcessHit(damage, attacker);
         }
 
         void Jump()

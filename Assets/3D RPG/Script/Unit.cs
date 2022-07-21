@@ -62,11 +62,23 @@ namespace MyRPG
             {
                 Debug.Log("===== 데미지 발생! =====");
 
-                Debug.Log($"attacker : {other.gameObject.name}");
+                Debug.Log($"attacker weapon : {other.gameObject.name}");
+                Debug.Log($"attacker : {other.transform.parent.parent.name}");
 
                 Debug.Log("===== 데미지 종료! =====");
 
-                ProcessHit(10);
+                Unit attacker = other.transform.parent.parent.GetComponent<Unit>();
+
+                if(attacker.GetType() == typeof(Player))
+                {
+                    // 플레이어가 아닌 몬스터 등이 공격한경우
+                }
+                else
+                {
+
+                }
+
+                ProcessHit(10, attacker);
                 if (_ImgHpBar != null)
                 {
                     if (!_ImgHpBar.gameObject.activeSelf)
@@ -76,7 +88,9 @@ namespace MyRPG
             }
         }
 
-        protected virtual void ProcessHit(int damage)
+        
+
+        protected virtual void ProcessHit(int damage, Unit attacker)
         {
             _hp -= damage;
 
@@ -86,9 +100,20 @@ namespace MyRPG
             if (_hp <= 0)
             {
                 _anim.SetTrigger("die");
-                Invoke("ActiveFalse", _dieDelay);
-                Invoke("ReBirth", _reBirthDelay);
+                Die(attacker);
             }
+        }
+
+        void Die(Unit attacker)
+        {
+            if (attacker is Player)
+            {
+                // 경험치를 준다
+                Player player = attacker as Player;
+                player.AddExp(1000);
+            }
+            Invoke("ActiveFalse", _dieDelay);
+            Invoke("ReBirth", _reBirthDelay);
         }
 
         private void ThisDestroy()
