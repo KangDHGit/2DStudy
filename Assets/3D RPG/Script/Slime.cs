@@ -29,6 +29,12 @@ namespace MyRPG
             _attackCol = transform.Find("Body/AttackCol").GetComponent<BoxCollider>();
         }
 
+        protected override void ProcessHit(int damage, Unit attacker)
+        {
+            _monUIClone.SetActive(true);
+            base.ProcessHit(damage, attacker);
+        }
+
         void CheckDistance()    // 
         {
             Vector3 pos1 = transform.position; 
@@ -56,7 +62,7 @@ namespace MyRPG
             {
                 _monUIClone = Instantiate(_monUITemp);
                 _monUIClone.transform.parent = _uiTrans;
-                _monUIClone.SetActive(true);
+                _monUIClone.SetActive(false);
                 _ImgHpBar = _monUIClone.transform.Find("Img_Fil_Temp").GetComponent<Image>();
             }
         }

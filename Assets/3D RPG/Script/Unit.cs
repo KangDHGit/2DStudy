@@ -69,14 +69,6 @@ namespace MyRPG
 
                 Unit attacker = other.transform.parent.parent.GetComponent<Unit>();
 
-                if(attacker.GetType() == typeof(Player))
-                {
-                    // 플레이어가 아닌 몬스터 등이 공격한경우
-                }
-                else
-                {
-
-                }
 
                 ProcessHit(10, attacker);
                 if (_ImgHpBar != null)
