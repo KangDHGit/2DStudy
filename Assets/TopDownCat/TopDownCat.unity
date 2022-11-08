@@ -2360,6 +2360,7 @@ GameObject:
   - component: {fileID: 241040926}
   - component: {fileID: 241040928}
   - component: {fileID: 241040929}
+  - component: {fileID: 241040930}
   m_Layer: 8
   m_Name: Wall
   m_TagString: Untagged
@@ -2375,7 +2376,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241040924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000038146973, y: -0.000019073486, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3876,6 +3877,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &241040930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241040924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4060614931a67894ca72ff9d8d51360e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileBase: {fileID: 11400000, guid: 2a0d4f1efd9015945bf35308c566be2a, type: 2}
 --- !u!1 &264295390
 GameObject:
   m_ObjectHideFlags: 0
@@ -9408,6 +9422,7 @@ GameObject:
   - component: {fileID: 856080146}
   - component: {fileID: 856080148}
   - component: {fileID: 856080147}
+  - component: {fileID: 856080149}
   m_Layer: 8
   m_Name: BackGround
   m_TagString: Untagged
@@ -9423,7 +9438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856080145}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000038146973, y: -0.000019073486, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13205,6 +13220,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &856080149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856080145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4060614931a67894ca72ff9d8d51360e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tileBase: {fileID: 11400000, guid: 2a0d4f1efd9015945bf35308c566be2a, type: 2}
 --- !u!1 &863666981
 GameObject:
   m_ObjectHideFlags: 0
@@ -16124,7 +16152,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1140253225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000038146973, y: -0.000019073486, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20110,7 +20138,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573113403}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.000038146973, y: -0.000019073486, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
